@@ -1,46 +1,31 @@
 <template>
   <header class="header" :style="headerStyle">
     <div class="header-left">
-      <div class="header-logo" @click="$emit('logo-click')">
+      <router-link to="/" class="header-logo">
         <slot name="logo">
-          <img
-            v-if="logoImage"
-            class="logo-image"
-            :alt="logoAlt"
-            :src="logoImage"
-          />
+          <img v-if="logoImage" class="logo-image" :alt="logoAlt" :src="logoImage" />
         </slot>
         <div v-if="showBrandName" class="brand-text">
           <div class="brand-name">{{ brandName }}</div>
           <div v-if="brandTagline" class="brand-tagline">{{ brandTagline }}</div>
         </div>
-      </div>
-      
+      </router-link>
+
       <nav class="navigation">
         <slot name="nav-items">
-          <div 
-            v-for="(item, index) in navItems" 
-            :key="index" 
-            class="nav-item"
-            @click="$emit('nav-click', index)"
-          >
+          <router-link v-for="(item, index) in navItems" :key="index" :to="item.route" class="nav-item"
+            active-class="nav-item-active">
             {{ item.label }}
-          </div>
+          </router-link>
         </slot>
       </nav>
     </div>
-    
+
     <div class="header-right">
       <slot name="right-icons">
         <div v-if="rightIcons.length > 0" class="icon-container">
-          <img 
-            v-for="(icon, index) in rightIcons" 
-            :key="index"
-            class="header-icon"
-            :alt="icon.alt || 'Icon'"
-            :src="icon.src"
-            @click="$emit('icon-click', index)"
-          />
+          <img v-for="(icon, index) in rightIcons" :key="index" class="header-icon" :alt="icon.alt || 'Icon'"
+            :src="icon.src" @click="$emit('icon-click', index)" />
         </div>
       </slot>
     </div>
@@ -53,7 +38,7 @@ import { computed } from 'vue'
 // Define interface for nav item
 interface NavItem {
   label: string
-  link?: string
+  route: string
   [key: string]: any
 }
 
@@ -74,7 +59,7 @@ const props = withDefaults(defineProps<{
   brandTagline?: string
   navItems?: NavItem[]
   rightIcons?: Icon[]
-  
+
   // Styling
   backgroundColor?: string
   textColor?: string
@@ -83,22 +68,19 @@ const props = withDefaults(defineProps<{
   useGradient?: boolean
 }>(), {
   logoImage: '',
-  logoAlt: 'Brand Logo',
+  logoAlt: 'U21 Sports Logo',
   showBrandName: true,
-  brandName: 'KENI',
-  brandTagline: 'SPORTSWEAR',
+  brandName: 'U21',
+  brandTagline: 'SPORTS',
   navItems: () => [
-    { label: 'NEWS & FEATURES' },
-    { label: 'MEN' },
-    { label: 'WOMEN' },
-    { label: 'KIDS' },
-    { label: 'ACCESSORIES' },
-    { label: 'SALE' }
+    { label: 'ÜBER UNS', route: '/about' },
+    { label: 'TRAINING', route: '/training' },
+    { label: 'ALTERSGRUPPEN', route: '/age-groups' },
+    { label: 'STANDORTE', route: '/locations' },
+    { label: 'PREISE', route: '/pricing' },
+    { label: 'KONTAKT', route: '/contact' }
   ],
-  rightIcons: () => [
-    { src: '/src/assets/icons/ph-heart.svg', alt: 'Favorites' },
-    { src: '/src/assets/icons/ph-shopping-cart.svg', alt: 'Cart' }
-  ],
+  rightIcons: () => [], // Remove shopping cart and favorites icons
   backgroundColor: '#0a2025',
   textColor: '#ffffff',
   gradientStart: 'rgba(10, 34, 39, 1)',
@@ -188,6 +170,12 @@ const headerStyle = computed(() => {
   white-space: nowrap;
   cursor: pointer;
   transition: opacity 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-item-active {
+  color: #3e9d26;
 }
 
 .nav-item:hover {
@@ -228,11 +216,11 @@ const headerStyle = computed(() => {
   .header {
     padding: 16px 5%;
   }
-  
+
   .header-left {
     gap: 30px;
   }
-  
+
   .navigation {
     gap: 25px;
   }
@@ -240,9 +228,10 @@ const headerStyle = computed(() => {
 
 @media (max-width: 768px) {
   .navigation {
-    display: none; /* Hide navigation on mobile - would require mobile menu implementation */
+    display: none;
+    /* Hide navigation on mobile - would require mobile menu implementation */
   }
-  
+
   .menu-button {
     display: block;
   }
@@ -252,11 +241,11 @@ const headerStyle = computed(() => {
   .header {
     padding: 12px 4%;
   }
-  
+
   .brand-name {
     font-size: 18px;
   }
-  
+
   .brand-tagline {
     font-size: 11px;
   }

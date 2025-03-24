@@ -28,15 +28,16 @@
     </div>
 
     <div class="categories-wrapper">
-      <div class="category men">
-        <h3 class="category-title">Men</h3>
+      <div class="category altersgruppen">
+        <h3 class="category-title">Altersgruppen</h3>
         <div class="category-items">
           <div v-for="(item, index) in menItems" :key="index" class="category-item">
             <img class="item-image" :alt="item.title" :src="item.image" />
             <div class="item-content">
+              <div class="item-title">{{ item.title }}</div>
               <p class="item-description">{{ item.description }}</p>
               <div class="item-cta" :style="{ color: accentColor }"
-                @click="$emit('item-click', { category: 'men', index })">
+                @click="$emit('item-click', { category: 'altersgruppen', index })">
                 {{ itemCtaText }}
               </div>
             </div>
@@ -44,15 +45,16 @@
         </div>
       </div>
 
-      <div class="category women">
-        <h3 class="category-title">Women</h3>
+      <div class="category trainingsarten">
+        <h3 class="category-title">Trainingsarten</h3>
         <div class="category-items">
           <div v-for="(item, index) in womenItems" :key="index" class="category-item">
             <img class="item-image" :alt="item.title" :src="item.image" />
             <div class="item-content">
+              <div class="item-title">{{ item.title }}</div>
               <p class="item-description">{{ item.description }}</p>
               <div class="item-cta" :style="{ color: accentColor }"
-                @click="$emit('item-click', { category: 'women', index })">
+                @click="$emit('item-click', { category: 'trainingsarten', index })">
                 {{ itemCtaText }}
               </div>
             </div>
@@ -103,25 +105,25 @@ const props = withDefaults(defineProps<{
   accentColor?: string
   columnGap?: number
 }>(), {
-  heading: 'Redefining Athletic Performance',
+  heading: 'Unser Trainingsangebot',
   features: () => [
     {
-      title: 'Unmatched Comfort',
-      description: ' - Experience the perfect blend of comfort and flexibility with our innovative cushioning technology.'
+      title: 'Strukturiertes Training',
+      description: ' - Professionell gestaltete Trainingseinheiten für verschiedene Altersgruppen und Leistungsniveaus.'
     },
     {
-      title: 'Superior Design',
-      description: ' - Stand out with our sleek, modern, and futuristic shoe designs that turn heads wherever you go.'
+      title: 'Athletiktraining',
+      description: ' - Ganzheitliche Förderung durch spezifisches Athletiktraining für bessere Leistung auf dem Platz.'
     },
     {
-      title: 'Durability and Quality',
-      description: ' - Crafted from high-quality materials, our shoes are designed to last, supporting your athletic pursuits over the long haul.'
+      title: 'Individuelle Betreuung',
+      description: ' - Persönliche Betreuung durch erfahrene Trainer für optimale Entwicklung.'
     }
   ],
-  ctaText: 'Learn more',
+  ctaText: 'Mehr erfahren',
   mainImage: mainFeatureImage,
-  imageAlt: 'Athletic Performance Feature',
-  itemCtaText: 'See product',
+  imageAlt: 'Fußballtraining Feature',
+  itemCtaText: 'Details',
   backgroundColor: '#0a2025',
   textColor: '#ffffff',
   accentColor: '#3e9d26',
@@ -131,18 +133,18 @@ const props = withDefaults(defineProps<{
 // Men's items data
 const menItems = ref([
   {
-    title: 'Velocity',
-    description: 'Exhibit your speed and agility with our \'Velocity\' sports shoes.',
+    title: 'U10-U11',
+    description: 'Grundlegendes Techniktraining und Spielverständnis',
     image: ellipse1_1
   },
   {
-    title: 'Unbound',
-    description: 'Unleash your potential with the groundbreaking \'Unbound\' running shoes.',
+    title: 'U12-U13',
+    description: 'Aufbauendes Training mit taktischen Elementen',
     image: ellipse2_1
   },
   {
-    title: 'Futurist',
-    description: 'Step into the future with our most advanced model, the \'Futurist\'.',
+    title: 'U14-U15',
+    description: 'Fortgeschrittenes Training für ambitionierte Spieler',
     image: ellipse2_2
   }
 ])
@@ -150,18 +152,18 @@ const menItems = ref([
 // Women's items data
 const womenItems = ref([
   {
-    title: 'Grace',
-    description: 'Embrace comfort and style with our \'Grace\' sports shoes.',
+    title: 'Fußballtraining',
+    description: 'Technik, Taktik und Spielpraxis',
     image: ellipse1
   },
   {
-    title: 'Liberate',
-    description: 'Break free from the limits with our innovative \'Liberate\' running shoes.',
+    title: 'Athletiktraining',
+    description: 'Kraft, Ausdauer und Koordination',
     image: ellipse2
   },
   {
-    title: 'Futurist',
-    description: 'Experience the future of sports footwear with our \'Futurist\' model.',
+    title: 'Kombi-Training',
+    description: 'Ganzheitliches Training für maximalen Fortschritt',
     image: ellipse2_3
   }
 ])
@@ -169,7 +171,7 @@ const womenItems = ref([
 // Define emits
 defineEmits<{
   (e: 'cta-click'): void
-  (e: 'item-click', payload: { category: 'men' | 'women', index: number }): void
+  (e: 'item-click', payload: { category: 'altersgruppen' | 'trainingsarten', index: number }): void
 }>()
 
 // Computed styles

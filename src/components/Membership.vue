@@ -54,11 +54,11 @@ const props = withDefaults(defineProps<{
   paddingX?: string
   paddingY?: string
 }>(), {
-  sectionTitle: 'Keni Membership',
-  bannerHeading: 'BECOME A MEMBER',
-  bannerSubheading: 'Sign up for free. Join the community.',
-  joinButtonText: 'Join Us',
-  signinButtonText: 'Sign In',
+  sectionTitle: 'Urban Sports Club Partner',
+  bannerHeading: 'WERDE TEIL DER COMMUNITY',
+  bannerSubheading: 'Kostenlos anmelden und von professionellem Training profitieren. Auch über Urban Sports Club buchbar!',
+  joinButtonText: 'Jetzt Anmelden',
+  signinButtonText: 'Einloggen',
   backgroundColor: '#0a2025',
   textColor: '#ffffff',
   accentColor: '#3e9d26',

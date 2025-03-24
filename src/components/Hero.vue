@@ -60,11 +60,11 @@ const props = withDefaults(defineProps<{
   textColor?: string
 }>(), {
   // Default values
-  titleStart: 'Redefining Motion:',
-  titleEnd: 'The Future of Footwear is Here',
-  subtitle: 'Experience unparalleled comfort and innovative design with our state-of-the-art products.',
-  linkText: 'Step into the Future',
-  ctaText: 'Shop Now',
+  titleStart: 'U21 Sports:',
+  titleEnd: 'Dein Weg zum besseren Fußballer',
+  subtitle: 'Strukturiertes Fußball- und Athletiktraining für alle Altersgruppen. Profitiere von professionellem Training und werde Teil unserer Community.',
+  linkText: 'Mehr erfahren',
+  ctaText: 'Jetzt anmelden',
   arrowIcon: '/src/assets/icons/ph-arrow-right.svg',
   accentColor: '#3e9d26',
   textColor: '#ffffff',

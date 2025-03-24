@@ -1,18 +1,11 @@
 <template>
   <div class="footer-nav" :style="{ backgroundColor }">
-    <div 
-      v-for="(category, index) in categories" 
-      :key="index" 
-      class="footer-category"
-    >
+    <div v-for="(category, index) in categories" :key="index" class="footer-category">
       <div class="category-title">{{ category.title }}</div>
       <div class="category-links">
-        <div 
-          v-for="(link, linkIndex) in category.links" 
-          :key="linkIndex" 
+        <div v-for="(link, linkIndex) in category.links" :key="linkIndex"
           :class="['category-link', linkIndex === 0 ? 'category-link-first' : '']"
-          @click="$emit('link-click', { category: category.title, link })"
-        >
+          @click="$emit('link-click', { category: category.title, link })">
           {{ link }}
         </div>
       </div>
@@ -33,20 +26,20 @@ const props = withDefaults(defineProps<{
 }>(), {
   categories: () => [
     {
-      title: 'Featured',
-      links: ['Velocity', 'Unbound', 'Futurist', 'Grace']
+      title: 'Training',
+      links: ['Fußballtraining', 'Athletiktraining', 'Kombi-Training', 'Probetraining']
     },
     {
-      title: 'Shoes',
-      links: ['All shoes', 'Velocity Shoes', 'Running Shoes', 'Basketball Shoes']
+      title: 'Altersgruppen',
+      links: ['U10-U11', 'U12-U13', 'U14-U15']
     },
     {
-      title: 'Clothing',
-      links: ['All Clothing', 'Tops & T-Shirts', 'Shorts', 'Hoodies & Pullovers']
+      title: 'Informationen',
+      links: ['Über Uns', 'Standorte', 'Preise', 'Urban Sports Club']
     },
     {
-      title: 'Kids\'',
-      links: ['Infant & Toddler Shoes', 'Kids\' Shoes', 'Kids\' Basketball Shoes', 'Kids\' Running Shoes']
+      title: 'Kontakt',
+      links: ['Anmeldung', 'Newsletter', 'FAQ', 'Kontaktformular']
     }
   ],
   backgroundColor: '#0a2025'
@@ -127,7 +120,7 @@ defineEmits<{
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  
+
   .footer-category {
     width: calc(50% - 20px);
     margin-bottom: 20px;
@@ -140,7 +133,7 @@ defineEmits<{
     flex-direction: column;
     gap: 30px;
   }
-  
+
   .footer-category {
     width: 100%;
     margin-bottom: 0;

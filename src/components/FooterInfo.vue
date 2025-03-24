@@ -3,9 +3,9 @@
     <div class="info-container">
       <div class="links-section">
         <div class="primary-links">
-          <div v-for="(link, index) in primaryLinks" :key="index" 
-               :class="[index === 0 ? 'primary-link-first' : 'primary-link']"
-               @click="$emit('link-click', { section: 'primary', link })">
+          <div v-for="(link, index) in primaryLinks" :key="index"
+            :class="[index === 0 ? 'primary-link-first' : 'primary-link']"
+            @click="$emit('link-click', { section: 'primary', link })">
             {{ link }}
           </div>
         </div>
@@ -14,8 +14,8 @@
           <div class="section-title">{{ helpTitle }}</div>
           <div class="section-links">
             <div v-for="(link, index) in helpLinks" :key="index"
-                 :class="[index === 0 ? 'section-link-first' : 'section-link']"
-                 @click="$emit('link-click', { section: 'help', link })">
+              :class="[index === 0 ? 'section-link-first' : 'section-link']"
+              @click="$emit('link-click', { section: 'help', link })">
               {{ link }}
             </div>
           </div>
@@ -25,8 +25,8 @@
           <div class="section-title">{{ aboutTitle }}</div>
           <div class="section-links">
             <div v-for="(link, index) in aboutLinks" :key="index"
-                 :class="[index === 0 ? 'section-link-first' : 'section-link']"
-                 @click="$emit('link-click', { section: 'about', link })">
+              :class="[index === 0 ? 'section-link-first' : 'section-link']"
+              @click="$emit('link-click', { section: 'about', link })">
               {{ link }}
             </div>
           </div>
@@ -34,11 +34,8 @@
       </div>
 
       <div class="social-icons">
-        <img v-for="(icon, index) in socialIcons" :key="index"
-             class="social-icon" 
-             :src="icon.src" 
-             :alt="icon.alt"
-             @click="$emit('social-click', icon.name)" />
+        <img v-for="(icon, index) in socialIcons" :key="index" class="social-icon" :src="icon.src" :alt="icon.alt"
+          @click="$emit('social-click', icon.name)" />
       </div>
     </div>
   </div>
@@ -67,30 +64,29 @@ const props = withDefaults(defineProps<{
 }>(), {
   backgroundColor: '#449596',
   primaryLinks: () => [
-    'Gift Cards',
-    'Promotions',
-    'Find a Store',
-    'Become a Member',
-    'Keni Journal',
-    'Send us Feedback'
+    'Probetraining',
+    'Newsletter',
+    'Standorte',
+    'Anmeldung',
+    'Unser Blog',
+    'Feedback'
   ],
-  helpTitle: 'Get Help',
+  helpTitle: 'Hilfe',
   helpLinks: () => [
-    'Order Status',
-    'Shipping and Delivery',
-    'Returns',
-    'Order Cancellation',
-    'Payment Options',
-    'Gift Card Balance',
-    'Contact Us'
+    'Buchungsstatus',
+    'Trainingszeiten',
+    'Stornierung',
+    'Zahlungsoptionen',
+    'Gutscheine',
+    'Kontakt'
   ],
-  aboutTitle: 'About Keni',
+  aboutTitle: 'Über U21 Sports',
   aboutLinks: () => [
     'News',
-    'Careers',
-    'Investors',
-    'Purpose',
-    'Sustainability'
+    'Karriere',
+    'Partner',
+    'Philosophie',
+    'Nachhaltigkeit'
   ],
   socialIcons: () => [
     {
@@ -151,7 +147,8 @@ defineEmits<{
   position: relative;
 }
 
-.primary-link-first, .primary-link {
+.primary-link-first,
+.primary-link {
   color: #ffffff;
   font-family: "Roboto-Bold", Helvetica, sans-serif;
   font-size: 14px;
@@ -167,11 +164,13 @@ defineEmits<{
   margin-top: -1px;
 }
 
-.primary-link-first:hover, .primary-link:hover {
+.primary-link-first:hover,
+.primary-link:hover {
   opacity: 0.8;
 }
 
-.help-section, .about-section {
+.help-section,
+.about-section {
   display: inline-flex;
   flex-direction: column;
   gap: 20px;
@@ -193,7 +192,8 @@ defineEmits<{
   gap: 10px;
 }
 
-.section-link-first, .section-link {
+.section-link-first,
+.section-link {
   color: #ffffff;
   font-family: "Roboto-Regular", Helvetica, sans-serif;
   font-size: 14px;
@@ -207,7 +207,8 @@ defineEmits<{
   margin-top: -1px;
 }
 
-.section-link-first:hover, .section-link:hover {
+.section-link-first:hover,
+.section-link:hover {
   opacity: 0.8;
 }
 
@@ -266,7 +267,8 @@ defineEmits<{
     gap: 30px;
   }
 
-  .help-section, .about-section {
+  .help-section,
+  .about-section {
     gap: 15px;
   }
 }

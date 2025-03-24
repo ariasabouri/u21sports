@@ -4,47 +4,24 @@
       <div class="section-title">{{ title }}</div>
       <div v-if="showNavigation" class="navigation-controls">
         <slot name="navigation-start">
-          <img 
-            class="nav-arrow" 
-            alt="Previous" 
-            :src="prevArrowIcon" 
-            @click="$emit('prev')" 
-          />
+          <img class="nav-arrow" alt="Previous" :src="prevArrowIcon" @click="$emit('prev')" />
         </slot>
         <slot name="navigation-end">
-          <img 
-            class="nav-arrow" 
-            alt="Next" 
-            :src="nextArrowIcon" 
-            @click="$emit('next')" 
-          />
+          <img class="nav-arrow" alt="Next" :src="nextArrowIcon" @click="$emit('next')" />
         </slot>
       </div>
     </div>
-    
+
     <div class="grid-container" :style="gridContainerStyle">
       <slot>
         <!-- Default grid items if no slot content -->
-        <div 
-          v-for="(item, index) in gridItems" 
-          :key="index" 
-          class="grid-item"
-          :style="getGridItemStyle(item)"
-        >
-          <img 
-            class="grid-image" 
-            :alt="item.title" 
-            :src="item.image" 
-          />
+        <div v-for="(item, index) in gridItems" :key="index" class="grid-item" :style="getGridItemStyle(item)">
+          <img class="grid-image" :alt="item.title" :src="item.image" />
           <div class="grid-content">
             <div class="item-title">{{ item.title }}</div>
             <p class="item-description">{{ item.description }}</p>
           </div>
-          <div 
-            class="item-cta" 
-            :style="{ color: accentColor }"
-            @click="$emit('item-click', index)"
-          >
+          <div class="item-cta" :style="{ color: accentColor }" @click="$emit('item-click', index)">
             {{ ctaText }}
           </div>
         </div>
@@ -56,7 +33,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-// Define prop types with interface for grid item data
+// Define interface for grid item data
 interface GridItem {
   title: string
   description: string
@@ -72,32 +49,38 @@ const props = withDefaults(defineProps<{
   title?: string
   gridItems?: GridItem[]
   ctaText?: string
-  
+
+  // Layout options
+  columns?: number
+  gap?: number
+  minWidth?: string
+  aspectRatio?: string
+
   // Navigation
   showNavigation?: boolean
   prevArrowIcon?: string
   nextArrowIcon?: string
-  
-  // Layout options
-  columns?: number
-  gap?: number
-  
+
   // Styling
   backgroundColor?: string
   textColor?: string
   accentColor?: string
+  imageFit?: 'cover' | 'contain' | 'fill'
 }>(), {
-  title: 'Featured Grid',
+  title: 'Grid Section',
   gridItems: () => [],
-  ctaText: 'Shop',
+  ctaText: 'Details',
+  columns: 2,
+  gap: 40,
+  minWidth: '280px',
+  aspectRatio: '16/9',
   showNavigation: true,
   prevArrowIcon: '/src/assets/icons/ph-arrow-circle-left.svg',
   nextArrowIcon: '/src/assets/icons/ph-arrow-circle-right.svg',
-  columns: 2,
-  gap: 40,
   backgroundColor: '#0a2025',
   textColor: '#ffffff',
-  accentColor: '#3e9d26'
+  accentColor: '#3e9d26',
+  imageFit: 'cover'
 })
 
 // Define emits
@@ -122,15 +105,15 @@ const gridContainerStyle = computed(() => ({
 // Helper function to handle grid item styling based on span properties
 const getGridItemStyle = (item: GridItem) => {
   const style: Record<string, string> = {}
-  
+
   if (item.colSpan) {
     style.gridColumn = `span ${item.colSpan}`
   }
-  
+
   if (item.rowSpan) {
     style.gridRow = `span ${item.rowSpan}`
   }
-  
+
   return style
 }
 </script>
@@ -175,6 +158,9 @@ const getGridItemStyle = (item: GridItem) => {
 }
 
 .grid-container {
+  display: grid;
+  gap: v-bind('`${props.gap}px`');
+  grid-template-columns: repeat(auto-fit, minmax(v-bind('props.minWidth'), 1fr));
   width: 100%;
 }
 
@@ -186,9 +172,10 @@ const getGridItemStyle = (item: GridItem) => {
 
 .grid-image {
   width: 100%;
-  min-height: 300px;
-  max-height: 570px;
-  object-fit: cover;
+  aspect-ratio: v-bind('props.aspectRatio');
+  object-fit: v-bind('props.imageFit');
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
 .grid-content {
@@ -233,16 +220,16 @@ const getGridItemStyle = (item: GridItem) => {
   .section-title {
     font-size: 20px;
   }
-  
+
   .nav-arrow {
     height: 36px;
     width: 36px;
   }
-  
+
   .grid-image {
     min-height: 250px;
   }
-  
+
   .item-title {
     font-size: 20px;
   }
@@ -252,22 +239,22 @@ const getGridItemStyle = (item: GridItem) => {
   .grid-section {
     padding: 20px 4%;
   }
-  
+
   /* Force single column on mobile */
   .grid-container {
     display: flex !important;
     flex-direction: column !important;
     gap: 40px !important;
   }
-  
+
   .grid-item {
     gap: 20px;
   }
-  
+
   .grid-image {
     min-height: 200px;
   }
-  
+
   .item-title {
     font-size: 18px;
   }
