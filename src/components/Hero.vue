@@ -9,37 +9,28 @@
             <span class="hero-title-accent">{{ titleEnd }}</span>
           </h1>
         </slot>
-        
+
         <!-- Use slot for subtitle with fallback -->
         <slot name="subtitle">
           <p class="hero-subtitle">{{ subtitle }}</p>
         </slot>
       </div>
-      
+
       <div class="hero-cta-container">
         <!-- Link text with optional icon -->
         <div v-if="linkText" class="hero-link">
           <span class="hero-link-text">{{ linkText }}</span>
           <slot name="linkIcon">
-            <img
-              v-if="arrowIcon"
-              class="hero-arrow-icon"
-              alt="Arrow right"
-              src="@/assets/icons/ph-arrow-right.svg"
-            />
+            <img v-if="arrowIcon" class="hero-arrow-icon" alt="Arrow right" src="@/assets/icons/ph-arrow-right.svg" />
           </slot>
         </div>
-        
+
         <!-- Primary CTA button -->
-        <button 
-          v-if="ctaText" 
-          class="hero-cta-button"
-          :style="{ backgroundColor: accentColor }"
-          @click="$emit('cta-click')"
-        >
+        <button v-if="ctaText" class="hero-cta-button" :style="{ backgroundColor: accentColor }"
+          @click="$emit('cta-click')">
           <span class="hero-cta-text">{{ ctaText }}</span>
         </button>
-        
+
         <!-- Additional slot for custom CTAs -->
         <slot name="cta"></slot>
       </div>
@@ -59,11 +50,11 @@ const props = withDefaults(defineProps<{
   subtitle?: string
   linkText?: string
   ctaText?: string
-  
+
   // Image/icon paths
   backgroundImage?: string
   arrowIcon?: string
-  
+
   // Styling
   accentColor?: string
   textColor?: string
@@ -77,7 +68,7 @@ const props = withDefaults(defineProps<{
   arrowIcon: '/src/assets/icons/ph-arrow-right.svg',
   accentColor: '#3e9d26',
   textColor: '#ffffff',
-  backgroundImage: '/src/assets/images/hero_basic.png'
+  backgroundImage: '/src/assets/images/stock/hero_basic.png'
 })
 
 // Define emits
@@ -103,7 +94,8 @@ const bgImageStyle = computed(() => ({
   width: 100%;
   padding: 40px 8%;
   position: relative;
-  background-image: url('@/assets/images/hero_basic.png'); /* Fallback image */
+  background-image: url('@/assets/images/stock/hero_basic.png');
+  /* Fallback image */
 }
 
 .hero-content {

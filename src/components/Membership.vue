@@ -130,7 +130,7 @@ const buttonStyle = computed(() => ({
   right: 0;
   width: 40%;
   height: 100%;
-  background-image: url('@/assets/images/shoe.png');
+  background-image: url('@/assets/images/stock/shoe.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: auto;

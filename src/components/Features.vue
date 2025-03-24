@@ -23,36 +23,58 @@
 
     <div class="feature-image-column">
       <slot name="image">
-        <img
-          v-if="mainImage"
-          class="feature-image"
-          :alt="imageAlt"
-          :src="mainImage"
-        />
+        <img v-if="mainImage" class="feature-image" :alt="imageAlt" :src="mainImage" />
       </slot>
     </div>
 
-    <div class="feature-items-column">
-      <slot name="heading-secondary">
-        <h3 v-if="secondaryHeading" class="secondary-heading">{{ secondaryHeading }}</h3>
-      </slot>
-
-      <slot name="items">
-        <div v-for="(item, index) in items" :key="index" class="item-row">
-          <img class="item-image" :alt="item.title" :src="item.image" />
-          <div class="item-content">
-            <p class="item-description">{{ item.description }}</p>
-            <div class="item-cta" :style="{ color: accentColor }" @click="$emit('item-click', index)">
-              {{ itemCtaText }}
+    <div class="categories-wrapper">
+      <div class="category men">
+        <h3 class="category-title">Men</h3>
+        <div class="category-items">
+          <div v-for="(item, index) in menItems" :key="index" class="category-item">
+            <img class="item-image" :alt="item.title" :src="item.image" />
+            <div class="item-content">
+              <p class="item-description">{{ item.description }}</p>
+              <div class="item-cta" :style="{ color: accentColor }"
+                @click="$emit('item-click', { category: 'men', index })">
+                {{ itemCtaText }}
+              </div>
             </div>
           </div>
         </div>
-      </slot>
+      </div>
+
+      <div class="category women">
+        <h3 class="category-title">Women</h3>
+        <div class="category-items">
+          <div v-for="(item, index) in womenItems" :key="index" class="category-item">
+            <img class="item-image" :alt="item.title" :src="item.image" />
+            <div class="item-content">
+              <p class="item-description">{{ item.description }}</p>
+              <div class="item-cta" :style="{ color: accentColor }"
+                @click="$emit('item-click', { category: 'women', index })">
+                {{ itemCtaText }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
+// Import images
+import mainFeatureImage from '@/assets/images/stock/anthomkii_imagine_a_studio_photoshoot_of_professional_athletes__23f93872-3b1c-4f23-845c-ea25f1e1fb63 1.png'
+import ellipse1_1 from '@/assets/images/stock/Ellipse 1_1.png'
+import ellipse1 from '@/assets/images/stock/Ellipse 1.png'
+import ellipse2_1 from '@/assets/images/stock/Ellipse 2_1.png'
+import ellipse2_2 from '@/assets/images/stock/Ellipse 2_2.png'
+import ellipse2_3 from '@/assets/images/stock/Ellipse 2_3.png'
+import ellipse2 from '@/assets/images/stock/Ellipse 2.png'
+
 // Define interfaces for feature and item objects
 interface Feature {
   title: string
@@ -63,7 +85,6 @@ interface Item {
   image: string
   title: string
   description: string
-  [key: string]: any
 }
 
 // Define component props with defaults
@@ -74,10 +95,8 @@ const props = withDefaults(defineProps<{
   ctaText?: string
   mainImage?: string
   imageAlt?: string
-  secondaryHeading?: string
-  items?: Item[]
   itemCtaText?: string
-  
+
   // Styling
   backgroundColor?: string
   textColor?: string
@@ -88,20 +107,20 @@ const props = withDefaults(defineProps<{
   features: () => [
     {
       title: 'Unmatched Comfort',
-      description: '- Experience the perfect blend of comfort and flexibility with our innovative technology.'
+      description: ' - Experience the perfect blend of comfort and flexibility with our innovative cushioning technology.'
     },
     {
       title: 'Superior Design',
-      description: '- Stand out with our sleek, modern, and futuristic designs that turn heads wherever you go.'
+      description: ' - Stand out with our sleek, modern, and futuristic shoe designs that turn heads wherever you go.'
     },
     {
       title: 'Durability and Quality',
-      description: '- Crafted from high-quality materials, our products are designed to last.'
+      description: ' - Crafted from high-quality materials, our shoes are designed to last, supporting your athletic pursuits over the long haul.'
     }
   ],
   ctaText: 'Learn more',
-  secondaryHeading: 'Featured Products',
-  items: () => [],
+  mainImage: mainFeatureImage,
+  imageAlt: 'Athletic Performance Feature',
   itemCtaText: 'See product',
   backgroundColor: '#0a2025',
   textColor: '#ffffff',
@@ -109,10 +128,48 @@ const props = withDefaults(defineProps<{
   columnGap: 30
 })
 
+// Men's items data
+const menItems = ref([
+  {
+    title: 'Velocity',
+    description: 'Exhibit your speed and agility with our \'Velocity\' sports shoes.',
+    image: ellipse1_1
+  },
+  {
+    title: 'Unbound',
+    description: 'Unleash your potential with the groundbreaking \'Unbound\' running shoes.',
+    image: ellipse2_1
+  },
+  {
+    title: 'Futurist',
+    description: 'Step into the future with our most advanced model, the \'Futurist\'.',
+    image: ellipse2_2
+  }
+])
+
+// Women's items data
+const womenItems = ref([
+  {
+    title: 'Grace',
+    description: 'Embrace comfort and style with our \'Grace\' sports shoes.',
+    image: ellipse1
+  },
+  {
+    title: 'Liberate',
+    description: 'Break free from the limits with our innovative \'Liberate\' running shoes.',
+    image: ellipse2
+  },
+  {
+    title: 'Futurist',
+    description: 'Experience the future of sports footwear with our \'Futurist\' model.',
+    image: ellipse2_3
+  }
+])
+
 // Define emits
 defineEmits<{
   (e: 'cta-click'): void
-  (e: 'item-click', index: number): void
+  (e: 'item-click', payload: { category: 'men' | 'women', index: number }): void
 }>()
 
 // Computed styles
@@ -128,11 +185,12 @@ const sectionStyle = {
   display: flex;
   padding: 60px 8%;
   width: 100%;
-  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
 }
 
 .feature-text-column {
-  flex: 1;
+  flex: 0 1 25%;
   min-width: 280px;
   display: flex;
   flex-direction: column;
@@ -186,38 +244,61 @@ const sectionStyle = {
 }
 
 .feature-image-column {
-  flex: 1;
+  flex: 0 1 25%;
   min-width: 280px;
   display: flex;
   align-items: center;
+  /* Changed from flex-start to center */
   justify-content: center;
+  padding: 20px;
+  align-self: stretch;
+  /* Added to make it full height */
 }
 
 .feature-image {
   width: 100%;
   height: auto;
   object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
 }
 
-.feature-items-column {
-  flex: 1;
-  min-width: 280px;
+.feature-image:hover {
+  transform: scale(1.02);
+}
+
+.categories-wrapper {
+  flex: 0 1 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.category {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-.secondary-heading {
+.category-title {
   font-family: "Roboto-Bold", Helvetica, sans-serif;
   font-size: 24px;
   font-weight: 700;
   margin: 0;
 }
 
-.item-row {
+.category-items {
+  display: grid;
+  gap: 30px;
+}
+
+.category-item {
   display: flex;
   gap: 20px;
   align-items: center;
+  min-height: 90px;
 }
 
 .item-image {
@@ -225,13 +306,13 @@ const sectionStyle = {
   height: 69px;
   border-radius: 50%;
   object-fit: cover;
+  background-color: #ffffff;
 }
 
 .item-content {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex: 1;
 }
 
 .item-description {
@@ -239,6 +320,7 @@ const sectionStyle = {
   font-size: 14px;
   font-weight: 400;
   margin: 0;
+  line-height: 1.4;
 }
 
 .item-cta {
@@ -255,27 +337,51 @@ const sectionStyle = {
 }
 
 /* Responsive styles */
+@media (max-width: 1400px) {
+  .feature-section {
+    flex-wrap: wrap;
+  }
+
+  .feature-text-column,
+  .feature-image-column {
+    flex: 1 1 40%;
+  }
+
+  .categories-wrapper {
+    flex: 1 1 100%;
+  }
+}
+
 @media (max-width: 1200px) {
   .feature-section {
     flex-direction: column;
     gap: 40px;
     padding: 40px 5%;
   }
-  
+
   .feature-text-column,
   .feature-image-column,
-  .feature-items-column {
+  .categories-wrapper {
     width: 100%;
+  }
+
+  .categories-wrapper {
+    flex-direction: column;
   }
 }
 
 @media (max-width: 768px) {
   .feature-section {
+    flex-direction: column;
     padding: 30px 5%;
   }
-  
+
+  .categories-wrapper {
+    grid-template-columns: 1fr;
+  }
+
   .heading-text,
-  .secondary-heading {
+  .category-title {
     font-size: 22px;
   }
 }
@@ -284,17 +390,17 @@ const sectionStyle = {
   .feature-section {
     padding: 20px 4%;
   }
-  
+
   .heading-text,
-  .secondary-heading {
+  .category-title {
     font-size: 20px;
   }
-  
-  .item-row {
+
+  .category-item {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .item-content {
     width: 100%;
   }

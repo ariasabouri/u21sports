@@ -1,115 +1,98 @@
 <template>
-  <div class="card-section" :style="sectionStyle">
-    <div class="card-section-header">
-      <div class="section-title">{{ title }}</div>
-      <div v-if="showNavigation" class="navigation-controls">
-        <slot name="navigation-start">
-          <img 
-            class="nav-arrow" 
-            alt="Previous" 
-            :src="prevArrowIcon" 
-            @click="$emit('prev')" 
-          />
-        </slot>
-        <slot name="navigation-end">
-          <img 
-            class="nav-arrow" 
-            alt="Next" 
-            :src="nextArrowIcon" 
-            @click="$emit('next')" 
-          />
-        </slot>
+  <div class="frame" :style="sectionStyle">
+    <div class="header">
+      <div class="title">{{ title }}</div>
+      <div v-if="showNavigation" class="navigation">
+        <img class="nav-arrow" alt="Previous" :src="prevArrowIcon" @click="$emit('prev')" />
+        <img class="nav-arrow" alt="Next" :src="nextArrowIcon" @click="$emit('next')" />
       </div>
     </div>
-    
-    <div class="card-container" :style="{ gap: `${cardGap}px` }">
-      <slot>
-        <!-- Default cards as fallback if no slots are provided -->
-        <div 
-          v-for="(card, index) in cards" 
-          :key="index" 
-          class="card"
-        >
-          <img 
-            class="card-image" 
-            :alt="card.title" 
-            :src="card.image" 
-            :style="{ height: `${cardImageHeight}px` }"
-          />
-          <div class="card-content">
-            <div class="card-title">{{ card.title }}</div>
-            <p class="card-description">{{ card.description }}</p>
-          </div>
-          <div 
-            class="card-cta" 
-            :style="{ color: accentColor }"
-            @click="$emit('card-click', index)"
-          >
-            {{ ctaText }}
-          </div>
+
+    <div class="sports-container">
+      <div v-for="(sport, index) in sportsItems" :key="index" class="sport-card">
+        <img class="sport-image" :alt="sport.title" :src="sport.image" />
+        <div class="sport-content">
+          <div class="sport-title">{{ sport.title }}</div>
+          <p class="sport-description">{{ sport.description }}</p>
         </div>
-      </slot>
+        <div class="sport-cta" :style="{ color: accentColor }" @click="$emit('sport-click', index)">
+          {{ ctaText }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-// Define prop types with interface for card data
-interface Card {
+import { computed } from 'vue'
+
+// Define interface for sport item data
+interface SportItem {
   title: string
   description: string
   image: string
-  [key: string]: any // Allow for additional properties
 }
 
 // Define component props with defaults
 const props = withDefaults(defineProps<{
   // Content
   title?: string
-  cards?: Card[]
+  sportsItems?: SportItem[]
   ctaText?: string
-  
+
   // Navigation
   showNavigation?: boolean
   prevArrowIcon?: string
   nextArrowIcon?: string
-  
+
   // Styling
   backgroundColor?: string
   textColor?: string
   accentColor?: string
-  cardGap?: number
-  cardImageHeight?: number
 }>(), {
-  title: 'Featured Items',
-  cards: () => [],
+  title: 'Shop by Sport',
+  sportsItems: () => [
+    {
+      title: 'Keni Golf',
+      description: 'Everything you need for any course.',
+      image: '/src/assets/images/stock/stock_product_img_1.png'
+    },
+    {
+      title: 'Keni Basketball',
+      description: 'Styles made for your games.',
+      image: '/src/assets/images/stock/stock_product_img_2.png'
+    },
+    {
+      title: 'Keni Trail Running',
+      description: 'Everything you need for adventure.',
+      image: '/src/assets/images/stock/stock_product_img_3.png'
+    }
+  ],
   ctaText: 'Shop',
   showNavigation: true,
   prevArrowIcon: '/src/assets/icons/ph-arrow-circle-left.svg',
   nextArrowIcon: '/src/assets/icons/ph-arrow-circle-right.svg',
   backgroundColor: '#0a2025',
   textColor: '#ffffff',
-  accentColor: '#3e9d26',
-  cardGap: 40,
-  cardImageHeight: 360
+  accentColor: '#3e9d26'
 })
 
 // Define emits
 defineEmits<{
   (e: 'prev'): void
   (e: 'next'): void
-  (e: 'card-click', index: number): void
+  (e: 'sport-click', index: number): void
 }>()
 
 // Computed styles
-const sectionStyle = {
+const sectionStyle = computed(() => ({
   backgroundColor: props.backgroundColor,
   color: props.textColor
-}
+}))
 </script>
 
 <style scoped>
-.card-section {
+.frame {
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -117,21 +100,21 @@ const sectionStyle = {
   width: 100%;
 }
 
-.card-section-header {
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
 
-.section-title {
+.title {
   font-family: "Roboto-Bold", Helvetica, sans-serif;
   font-size: 24px;
   font-weight: 700;
   white-space: nowrap;
 }
 
-.navigation-controls {
+.navigation {
   display: flex;
   gap: 10px;
 }
@@ -147,53 +130,45 @@ const sectionStyle = {
   opacity: 0.8;
 }
 
-.card-container {
+.sports-container {
   display: flex;
+  gap: 40px;
   width: 100%;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  /* Hide scrollbar but keep functionality */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
 }
 
-.card-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
-
-.card {
+.sport-card {
   display: flex;
   flex-direction: column;
   gap: 30px;
   flex: 1;
-  min-width: 250px;
 }
 
-.card-image {
+.sport-image {
   width: 100%;
+  height: 360px;
   object-fit: cover;
 }
 
-.card-content {
+.sport-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.card-title {
+.sport-title {
   font-family: "Roboto-Bold", Helvetica, sans-serif;
   font-size: 24px;
   font-weight: 700;
 }
 
-.card-description {
+.sport-description {
   font-family: "Roboto-Regular", Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  white-space: normal;
+  margin: 0;
 }
 
-.card-cta {
+.sport-cta {
   font-family: "Roboto-SemiBold", Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -202,42 +177,48 @@ const sectionStyle = {
   transition: opacity 0.2s ease;
 }
 
-.card-cta:hover {
+.sport-cta:hover {
   opacity: 0.8;
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
-  .card-section {
+@media (max-width: 1024px) {
+  .frame {
     padding: 30px 5%;
-  }
-  
-  .card {
-    min-width: 200px;
   }
 }
 
-@media (max-width: 480px) {
-  .card-section {
-    padding: 20px 4%;
+@media (max-width: 768px) {
+  .sports-container {
+    flex-direction: column;
+    gap: 40px;
   }
-  
-  .section-title {
+
+  .title {
     font-size: 20px;
   }
-  
+
   .nav-arrow {
     height: 36px;
     width: 36px;
   }
-  
-  .card {
-    min-width: 180px;
-    gap: 20px;
+
+  .sport-image {
+    height: 300px;
   }
-  
-  .card-title {
+
+  .sport-title {
     font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .frame {
+    padding: 20px 4%;
+  }
+
+  .sport-image {
+    height: 250px;
   }
 }
 </style>
