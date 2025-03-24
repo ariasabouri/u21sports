@@ -77,7 +77,7 @@ const props = withDefaults(defineProps<{
   arrowIcon: '/src/assets/icons/ph-arrow-right.svg',
   accentColor: '#3e9d26',
   textColor: '#ffffff',
-  backgroundImage: '/src/assets/images/hero.png'
+  backgroundImage: '/src/assets/images/hero_basic.png'
 })
 
 // Define emits
@@ -103,7 +103,7 @@ const bgImageStyle = computed(() => ({
   width: 100%;
   padding: 40px 8%;
   position: relative;
-  background-image: url('@/assets/images/hero.png'); /* Fallback image */
+  background-image: url('@/assets/images/hero_basic.png'); /* Fallback image */
 }
 
 .hero-content {

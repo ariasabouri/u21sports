@@ -19,19 +19,11 @@
 
         <div class="banner-actions">
           <slot name="banner-actions">
-            <button 
-              class="membership-button"
-              :style="buttonStyle"
-              @click="$emit('join-click')"
-            >
+            <button class="membership-button" :style="buttonStyle" @click="$emit('join-click')">
               <div class="button-text">{{ joinButtonText }}</div>
             </button>
 
-            <button 
-              class="membership-button"
-              :style="buttonStyle"
-              @click="$emit('signin-click')"
-            >
+            <button class="membership-button" :style="buttonStyle" @click="$emit('signin-click')">
               <div class="button-text">{{ signinButtonText }}</div>
             </button>
           </slot>
@@ -52,7 +44,7 @@ const props = withDefaults(defineProps<{
   bannerSubheading?: string
   joinButtonText?: string
   signinButtonText?: string
-  
+
   // Styling
   backgroundColor?: string
   textColor?: string
@@ -89,9 +81,7 @@ const sectionStyle = computed(() => ({
   padding: `0 ${props.paddingX} ${props.paddingY}`
 }))
 
-const bannerStyle = computed(() => ({
-  backgroundImage: props.bannerBackgroundImage ? `url(${props.bannerBackgroundImage})` : undefined
-}))
+const bannerStyle = computed(() => ({}))
 
 const buttonStyle = computed(() => ({
   backgroundColor: props.buttonBackgroundColor,
@@ -128,20 +118,39 @@ const buttonStyle = computed(() => ({
   width: 100%;
   padding: 40px;
   border-radius: 10px;
-  background-position: 50% 50%;
-  background-size: cover;
+  background-color: rgba(62, 157, 38, 0.85);
+  min-height: 300px;
+  position: relative;
+}
+
+.membership-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background-image: url('@/assets/images/shoe.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  z-index: 1;
 }
 
 .banner-content {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  max-width: 50%;
+  align-items: flex-start;
 }
 
 .banner-text {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .banner-heading {
@@ -194,7 +203,7 @@ const buttonStyle = computed(() => ({
   .membership-section {
     padding: 0 5% 30px;
   }
-  
+
   .membership-banner {
     padding: 30px;
   }
@@ -204,7 +213,7 @@ const buttonStyle = computed(() => ({
   .banner-heading {
     font-size: 36px;
   }
-  
+
   .banner-subheading {
     font-size: 18px;
   }
@@ -214,24 +223,24 @@ const buttonStyle = computed(() => ({
   .membership-section {
     padding: 0 4% 20px;
   }
-  
+
   .membership-banner {
     padding: 20px;
   }
-  
+
   .banner-heading {
     font-size: 28px;
   }
-  
+
   .banner-subheading {
     font-size: 16px;
   }
-  
+
   .banner-actions {
     flex-direction: column;
     width: 100%;
   }
-  
+
   .membership-button {
     width: 100%;
   }

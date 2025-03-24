@@ -1,23 +1,26 @@
 <template>
-  <footer class="site-footer" :style="{ backgroundColor }">
-    <FooterNav 
-      :categories="categories"
-      :backgroundColor="backgroundColor"
-      @link-click="handleLinkClick"
-    />
+  <footer class="site-footer">
+    <div class="nav-section">
+      <FooterNav 
+        :categories="categories"
+        :backgroundColor="navBackgroundColor"
+        @link-click="handleNavLinkClick"
+      />
+    </div>
+    <div class="info-section">
+      <FooterInfo
+        :backgroundColor="infoBackgroundColor"
+        @link-click="handleInfoLinkClick"
+        @social-click="handleSocialClick"
+      />
+    </div>
   </footer>
 </template>
 
 <script setup lang="ts">
 import FooterNav from './FooterNav.vue'
+import FooterInfo from './FooterInfo.vue'
 import { ref } from 'vue'
-
-// Define component props with defaults
-const props = withDefaults(defineProps<{
-  backgroundColor?: string;
-}>(), {
-  backgroundColor: '#0a2025'
-})
 
 // Default categories - could be provided from parent if needed
 const categories = ref([
@@ -39,15 +42,40 @@ const categories = ref([
   }
 ])
 
-// Handle link clicks
-function handleLinkClick(payload: { category: string, link: string }) {
+const navBackgroundColor = '#0a2025'
+const infoBackgroundColor = '#449596'
+
+// Handle navigation link clicks
+function handleNavLinkClick(payload: { category: string, link: string }) {
   console.log(`Clicked ${payload.link} in ${payload.category} category`)
   // Add routing or other actions here
+}
+
+// Handle info link clicks
+function handleInfoLinkClick(payload: { section: string, link: string }) {
+  console.log(`Clicked ${payload.link} in ${payload.section} section`)
+  // Add routing or other actions here
+}
+
+// Handle social media clicks
+function handleSocialClick(socialNetwork: string) {
+  console.log(`Clicked ${socialNetwork} social icon`)
+  // Add social media redirect logic here
 }
 </script>
 
 <style scoped>
 .site-footer {
+  width: 100%;
+}
+
+.nav-section {
+  background-color: #0a2025;
+  width: 100%;
+}
+
+.info-section {
+  background-color: #449596;
   width: 100%;
 }
 </style>
