@@ -42,6 +42,7 @@
 </template>
 
 <script setup lang="ts">
+// Import icons as modules
 import twitterIcon from '@/assets/icons/ph-twitter-logo.svg'
 import facebookIcon from '@/assets/icons/ph-facebook-logo.svg'
 import youtubeIcon from '@/assets/icons/ph-youtube-logo.svg'

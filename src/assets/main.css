@@ -4,6 +4,8 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  background-color: var(--app-background);
+  color: var(--app-text);
 }
 
 #app {
@@ -12,18 +14,19 @@ body {
   margin: 0;
   padding: 0;
   font-weight: normal;
+  min-height: 100vh;
+  background-color: var(--app-background);
 }
 
-a,
-.green {
+a {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  color: var(--app-accent);
   transition: 0.4s;
 }
 
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+    opacity: 0.8;
   }
 }
 

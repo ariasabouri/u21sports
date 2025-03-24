@@ -35,6 +35,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import kaganImg2 from '@/assets/images/img_kagan_2.jpeg'
 
 // Define component props with defaults
 const props = withDefaults(defineProps<{
@@ -62,7 +63,7 @@ const props = withDefaults(defineProps<{
   backgroundColor: '#0a2025',
   textColor: '#ffffff',
   accentColor: '#3e9d26',
-  bannerBackgroundImage: '/src/assets/images/membership-banner.png',
+  bannerBackgroundImage: kaganImg2,
   buttonBackgroundColor: '#ffffff',
   paddingX: '8%',
   paddingY: '40px'

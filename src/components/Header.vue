@@ -1,39 +1,48 @@
 <template>
   <header class="header" :style="headerStyle">
-    <div class="header-left">
-      <router-link to="/" class="header-logo">
-        <slot name="logo">
-          <img v-if="logoImage" class="logo-image" :alt="logoAlt" :src="logoImage" />
-        </slot>
-        <div v-if="showBrandName" class="brand-text">
-          <div class="brand-name">{{ brandName }}</div>
-          <div v-if="brandTagline" class="brand-tagline">{{ brandTagline }}</div>
-        </div>
-      </router-link>
+    <!-- Logo section -->
+    <router-link to="/" class="header-logo" @click="closeMobileMenu">
+      <slot name="logo">
+        <img v-if="logoImage" class="logo-image" :alt="logoAlt" :src="logoImage" />
+      </slot>
+      <div v-if="showBrandName" class="brand-text">
+        <div class="brand-name">{{ brandName }}</div>
+        <div v-if="brandTagline" class="brand-tagline">{{ brandTagline }}</div>
+      </div>
+    </router-link>
 
-      <nav class="navigation">
+    <!-- Navigation and right content section -->
+    <div class="header-right-content">
+      <!-- Hamburger menu button -->
+      <button class="menu-button" @click="toggleMobileMenu" :class="{ 'is-active': isMobileMenuOpen }">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <nav class="navigation" :class="{ 'is-open': isMobileMenuOpen }">
         <slot name="nav-items">
           <router-link v-for="(item, index) in navItems" :key="index" :to="item.route" class="nav-item"
-            active-class="nav-item-active">
+            active-class="nav-item-active" @click="closeMobileMenu">
             {{ item.label }}
           </router-link>
         </slot>
       </nav>
-    </div>
 
-    <div class="header-right">
-      <slot name="right-icons">
-        <div v-if="rightIcons.length > 0" class="icon-container">
-          <img v-for="(icon, index) in rightIcons" :key="index" class="header-icon" :alt="icon.alt || 'Icon'"
-            :src="icon.src" @click="$emit('icon-click', index)" />
-        </div>
-      </slot>
+      <div class="icons-section">
+        <slot name="right-icons">
+          <div v-if="rightIcons.length > 0" class="icon-container">
+            <img v-for="(icon, index) in rightIcons" :key="index" class="header-icon" :alt="icon.alt || 'Icon'"
+              :src="icon.src" @click="$emit('icon-click', index)" />
+          </div>
+        </slot>
+      </div>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 // Define interface for nav item
 interface NavItem {
@@ -73,6 +82,10 @@ const props = withDefaults(defineProps<{
   brandName: 'U21',
   brandTagline: 'SPORTS',
   navItems: () => [
+    { label: 'HOME', route: '/' },
+    // { label: 'TRAININGSARTEN', route: '/training-types' },
+    // { label: 'UNSERE TRAINER', route: '/trainers' },
+    // { label: 'UNSERE ATHLETEN', route: '/athletes' },
     { label: 'ÜBER UNS', route: '/about' },
     { label: 'TRAINING', route: '/training' },
     { label: 'ALTERSGRUPPEN', route: '/age-groups' },
@@ -80,7 +93,7 @@ const props = withDefaults(defineProps<{
     { label: 'PREISE', route: '/pricing' },
     { label: 'KONTAKT', route: '/contact' }
   ],
-  rightIcons: () => [], // Remove shopping cart and favorites icons
+  rightIcons: () => [],
   backgroundColor: '#0a2025',
   textColor: '#ffffff',
   gradientStart: 'rgba(10, 34, 39, 1)',
@@ -94,6 +107,19 @@ defineEmits<{
   (e: 'nav-click', index: number): void
   (e: 'icon-click', index: number): void
 }>()
+
+// Mobile menu state
+const isMobileMenuOpen = ref(false)
+
+// Toggle mobile menu
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
+}
+
+// Close mobile menu
+const closeMobileMenu = () => {
+  isMobileMenuOpen.value = false
+}
 
 // Computed background style
 const headerStyle = computed(() => {
@@ -118,12 +144,14 @@ const headerStyle = computed(() => {
   justify-content: space-between;
   padding: 20px 8%;
   width: 100%;
+  position: relative;
 }
 
-.header-left {
+.header-right-content {
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 40px;
+  margin-left: auto;
 }
 
 .header-logo {
@@ -131,6 +159,8 @@ const headerStyle = computed(() => {
   align-items: center;
   gap: 11px;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .logo-image {
@@ -205,10 +235,38 @@ const headerStyle = computed(() => {
   opacity: 0.8;
 }
 
-/* Mobile menu button for responsive design */
+/* Mobile menu button */
 .menu-button {
   display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
+  position: relative;
+  z-index: 100;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--vt-c-white);
+  transition: all 0.3s ease;
+}
+
+.menu-button.is-active .hamburger-line:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-button.is-active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-button.is-active .hamburger-line:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 /* Responsive styles */
@@ -227,13 +285,44 @@ const headerStyle = computed(() => {
 }
 
 @media (max-width: 768px) {
-  .navigation {
-    display: none;
-    /* Hide navigation on mobile - would require mobile menu implementation */
+  .header-right-content {
+    flex: 1;
+    justify-content: flex-end;
   }
 
   .menu-button {
-    display: block;
+    display: flex;
+  }
+
+  .navigation {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 32, 37, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 90;
+    padding: 80px 20px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .navigation.is-open {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-item {
+    font-size: 18px;
+  }
+
+  .header-right {
+    display: none;
   }
 }
 
@@ -248,6 +337,14 @@ const headerStyle = computed(() => {
 
   .brand-tagline {
     font-size: 11px;
+  }
+
+  .navigation.is-open {
+    padding: 60px 20px;
+  }
+
+  .nav-item {
+    font-size: 16px;
   }
 }
 </style>

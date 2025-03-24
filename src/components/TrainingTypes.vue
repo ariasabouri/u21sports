@@ -26,6 +26,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+// Import default images
+import productImg1 from '@/assets/images/stock/stock_product_img_1.png'
+import productImg2 from '@/assets/images/stock/stock_product_img_2.png'
+import productImg3 from '@/assets/images/stock/stock_product_img_3.png'
+import arrowLeft from '@/assets/icons/ph-arrow-circle-left.svg'
+import arrowRight from '@/assets/icons/ph-arrow-circle-right.svg'
+
 // Define interface for content item data
 interface ContentItem {
   title: string
@@ -55,23 +62,23 @@ const props = withDefaults(defineProps<{
     {
       title: 'Fußballtraining',
       description: 'Technik, Taktik und Spielpraxis.',
-      image: '/src/assets/images/stock/stock_product_img_1.png'
+      image: productImg1
     },
     {
       title: 'Athletiktraining',
       description: 'Kraft, Ausdauer und Koordination.',
-      image: '/src/assets/images/stock/stock_product_img_2.png'
+      image: productImg2
     },
     {
       title: 'Kombi-Training',
       description: 'Das komplette Paket für maximalen Erfolg.',
-      image: '/src/assets/images/stock/stock_product_img_3.png'
+      image: productImg3
     }
   ],
   ctaText: 'Details',
   showNavigation: true,
-  prevArrowIcon: '/src/assets/icons/ph-arrow-circle-left.svg',
-  nextArrowIcon: '/src/assets/icons/ph-arrow-circle-right.svg',
+  prevArrowIcon: arrowLeft,
+  nextArrowIcon: arrowRight,
   backgroundColor: '#0a2025',
   textColor: '#ffffff',
   accentColor: '#3e9d26'

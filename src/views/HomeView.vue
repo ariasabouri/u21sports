@@ -1,11 +1,3 @@
-<script setup lang="ts">
-import Hero from '@/components/Hero.vue'
-import Features from '@/components/Features.vue'
-import TrainingTypes from '@/components/TrainingTypes.vue'
-import GridSection from '@/components/GridSection.vue'
-import Membership from '@/components/Membership.vue'
-</script>
-
 <template>
   <main>
     <Hero />
@@ -23,42 +15,53 @@ import Membership from '@/components/Membership.vue'
   </main>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+import Hero from '@/components/Hero.vue'
+import Features from '@/components/Features.vue'
+import TrainingTypes from '@/components/TrainingTypes.vue'
+import GridSection from '@/components/GridSection.vue'
+import Membership from '@/components/Membership.vue'
+
+// Import images
+import kaganImg1 from '@/assets/images/img_kagan_1.jpeg'
+import kaganImg2 from '@/assets/images/img_kagan_2.jpeg'
+import athletesImg from '@/assets/images/stock/anthomkii_imagine_a_studio_photoshoot_of_professional_athletes__23f93872-3b1c-4f23-845c-ea25f1e1fb63 1.png'
+
 // Training types data
 const trainingTypes = [
   {
     title: 'Fußballtraining',
     description: 'Technik, Taktik und Spielpraxis für alle Niveaus.',
-    image: '/src/assets/images/img_kagan_1.jpeg'
+    image: kaganImg1
   },
   {
     title: 'Athletiktraining',
     description: 'Kraft, Ausdauer und Koordination für bessere Leistung.',
-    image: '/src/assets/images/img_kagan_2.jpeg'
+    image: kaganImg2
   },
   {
     title: 'Kombi-Training',
     description: 'Die perfekte Verbindung aus Fußball und Athletik.',
-    image: '/src/assets/images/stock/anthomkii_imagine_a_studio_photoshoot_of_professional_athletes__23f93872-3b1c-4f23-845c-ea25f1e1fb63 1.png'
+    image: athletesImg
   }
 ]
 
-// Age groups data with Kagan images
+// Age groups data
 const ageGroups = [
   {
     title: 'U10-U11',
     description: 'Grundlegende Techniken und Spielverständnis',
-    image: '/src/assets/images/img_kagan_1.jpeg'
+    image: kaganImg1
   },
   {
     title: 'U12-U13',
     description: 'Aufbauendes Training mit Taktik',
-    image: '/src/assets/images/img_kagan_2.jpeg'
+    image: kaganImg2
   },
   {
     title: 'U14-U15',
     description: 'Fortgeschrittenes Training',
-    image: '/src/assets/images/img_kagan_1.jpeg'
+    image: kaganImg1
   }
 ]
 

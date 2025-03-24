@@ -69,7 +69,9 @@
 import { ref } from 'vue'
 
 // Import images
-import mainFeatureImage from '@/assets/images/img_kagan_1.jpeg'
+import kaganImg1 from '@/assets/images/img_kagan_1.jpeg'
+import kaganImg2 from '@/assets/images/img_kagan_2.jpeg'
+import athletesImg from '@/assets/images/stock/anthomkii_imagine_a_studio_photoshoot_of_professional_athletes__23f93872-3b1c-4f23-845c-ea25f1e1fb63 1.png'
 
 // Define interfaces for feature and item objects
 interface Feature {
@@ -115,7 +117,7 @@ const props = withDefaults(defineProps<{
     }
   ],
   ctaText: 'Mehr erfahren',
-  mainImage: mainFeatureImage,
+  mainImage: kaganImg1,
   imageAlt: 'Fußballtraining Feature',
   itemCtaText: 'Details',
   backgroundColor: '#0a2025',
@@ -129,17 +131,17 @@ const menItems = ref([
   {
     title: 'U10-U11',
     description: 'Grundlegendes Techniktraining und Spielverständnis',
-    image: '/src/assets/images/img_kagan_1.jpeg'
+    image: kaganImg1
   },
   {
     title: 'U12-U13',
     description: 'Aufbauendes Training mit taktischen Elementen',
-    image: '/src/assets/images/img_kagan_2.jpeg'
+    image: kaganImg2
   },
   {
     title: 'U14-U15',
     description: 'Fortgeschrittenes Training für ambitionierte Spieler',
-    image: '/src/assets/images/img_kagan_1.jpeg'
+    image: kaganImg1
   }
 ])
 
@@ -148,17 +150,17 @@ const womenItems = ref([
   {
     title: 'Fußballtraining',
     description: 'Technik, Taktik und Spielpraxis',
-    image: '/src/assets/images/img_kagan_2.jpeg'
+    image: kaganImg2
   },
   {
     title: 'Athletiktraining',
     description: 'Kraft, Ausdauer und Koordination',
-    image: '/src/assets/images/img_kagan_1.jpeg'
+    image: kaganImg1
   },
   {
     title: 'Kombi-Training',
     description: 'Ganzheitliches Training für maximalen Fortschritt',
-    image: '/src/assets/images/img_kagan_2.jpeg'
+    image: athletesImg
   }
 ])
 

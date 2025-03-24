@@ -42,6 +42,9 @@
 // Using script setup for composition API
 import { computed } from 'vue'
 
+// Import background image
+import heroBackground from '@/assets/images/stock/hero_basic.png'
+
 // Define props with defaults for flexibility
 const props = withDefaults(defineProps<{
   // Text content
@@ -68,7 +71,7 @@ const props = withDefaults(defineProps<{
   arrowIcon: '/src/assets/icons/ph-arrow-right.svg',
   accentColor: '#3e9d26',
   textColor: '#ffffff',
-  backgroundImage: '/src/assets/images/stock/hero_basic.png'
+  backgroundImage: heroBackground
 })
 
 // Define emits
@@ -126,6 +129,7 @@ const bgImageStyle = computed(() => ({
 }
 
 .hero-title-accent {
+  margin-left: 10px;
   color: var(--hero-accent-color, #3e9d26);
 }
 
