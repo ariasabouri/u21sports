@@ -125,7 +125,8 @@ const handleSubmit = () => {
 .contact {
     min-height: 100vh;
     padding: 40px 8%;
-    background-color: var(--color-background);
+    background-color: #0a2025;
+    color: #ffffff;
 }
 
 .contact-content {
@@ -137,7 +138,7 @@ h1 {
     font-family: "Roboto-Bold", Helvetica, sans-serif;
     font-size: 32px;
     margin-bottom: 40px;
-    color: var(--color-heading);
+    color: #ffffff;
     text-align: center;
 }
 
@@ -150,14 +151,14 @@ h1 {
 .contact-section {
     padding: 30px;
     border-radius: 10px;
-    background-color: var(--color-background-soft);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 h2 {
     font-family: "Roboto-Bold", Helvetica, sans-serif;
     font-size: 24px;
     margin-bottom: 30px;
-    color: var(--color-heading);
+    color: #ffffff;
 }
 
 .contact-form {
@@ -175,7 +176,7 @@ h2 {
 label {
     font-family: "Roboto-SemiBold", Helvetica, sans-serif;
     font-size: 14px;
-    color: var(--color-text);
+    color: #ffffff;
 }
 
 input,
@@ -185,7 +186,7 @@ textarea {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.05);
-    color: var(--color-text);
+    color: #ffffff;
     font-family: "Roboto-Regular", Helvetica, sans-serif;
     font-size: 16px;
 }
@@ -207,7 +208,7 @@ textarea:focus {
     cursor: pointer;
     transition: opacity 0.2s ease;
     background-color: #3e9d26;
-    color: white;
+    color: #ffffff;
     font-family: "Roboto-SemiBold", Helvetica, sans-serif;
     font-size: 14px;
     font-weight: 600;
@@ -241,7 +242,7 @@ textarea:focus {
 
 strong {
     font-family: "Roboto-SemiBold", Helvetica, sans-serif;
-    color: var(--color-heading);
+    color: #ffffff;
     display: block;
     margin-bottom: 5px;
 }
@@ -251,7 +252,7 @@ p {
     font-size: 16px;
     line-height: 1.6;
     margin: 0;
-    color: var(--color-text);
+    color: #ffffff;
 }
 
 .social-icons {

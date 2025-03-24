@@ -130,10 +130,13 @@ const buttonStyle = computed(() => ({
   right: 0;
   width: 40%;
   height: 100%;
-  background-image: url('@/assets/images/stock/shoe.png');
+  background-image: url('@/assets/images/img_kagan_2.jpeg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  opacity: 0.85;
   z-index: 1;
 }
 

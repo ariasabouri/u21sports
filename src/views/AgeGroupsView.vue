@@ -73,7 +73,8 @@ const handleCtaClick = () => {
 .age-groups {
     min-height: 100vh;
     padding: 40px 8%;
-    background-color: var(--color-background);
+    background-color: #0a2025;
+    color: #ffffff;
 }
 
 .age-groups-content {
@@ -85,28 +86,29 @@ h1 {
     font-family: "Roboto-Bold", Helvetica, sans-serif;
     font-size: 32px;
     margin-bottom: 40px;
-    color: var(--color-heading);
+    color: #ffffff;
+    text-align: center;
 }
 
 .age-group-section {
     margin-bottom: 50px;
     padding: 30px;
     border-radius: 10px;
-    background-color: var(--color-background-soft);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 h2 {
     font-family: "Roboto-Bold", Helvetica, sans-serif;
     font-size: 24px;
     margin-bottom: 20px;
-    color: var(--color-heading);
+    color: #ffffff;
 }
 
 h3 {
     font-family: "Roboto-SemiBold", Helvetica, sans-serif;
     font-size: 18px;
     margin: 20px 0 15px;
-    color: var(--color-heading);
+    color: #ffffff;
 }
 
 .age-group-details {
@@ -118,7 +120,7 @@ p {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 20px;
-    color: var(--color-text);
+    color: #ffffff;
 }
 
 ul {
@@ -132,18 +134,12 @@ li {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 10px;
-    color: var(--color-text);
+    color: #ffffff;
 }
 
 .cta-section {
     text-align: center;
     background-color: #3e9d26;
-    color: white;
-}
-
-.cta-section h2,
-.cta-section p {
-    color: white;
 }
 
 .cta-button {
@@ -155,7 +151,7 @@ li {
     border-radius: 10px;
     cursor: pointer;
     transition: opacity 0.2s ease;
-    background-color: white;
+    background-color: #ffffff;
     color: #3e9d26;
     font-family: "Roboto-SemiBold", Helvetica, sans-serif;
     font-size: 14px;

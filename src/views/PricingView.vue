@@ -92,7 +92,8 @@ const handleTrial = () => {
 .pricing {
     min-height: 100vh;
     padding: 40px 8%;
-    background-color: var(--color-background);
+    background-color: #0a2025;
+    color: #ffffff;
 }
 
 .pricing-content {
@@ -104,7 +105,7 @@ h1 {
     font-family: "Roboto-Bold", Helvetica, sans-serif;
     font-size: 32px;
     margin-bottom: 40px;
-    color: var(--color-heading);
+    color: #ffffff;
     text-align: center;
 }
 
@@ -112,14 +113,14 @@ h1 {
     margin-bottom: 50px;
     padding: 30px;
     border-radius: 10px;
-    background-color: var(--color-background-soft);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 h2 {
     font-family: "Roboto-Bold", Helvetica, sans-serif;
     font-size: 24px;
     margin-bottom: 30px;
-    color: var(--color-heading);
+    color: #ffffff;
     text-align: center;
 }
 
@@ -154,12 +155,13 @@ h2 {
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 14px;
+    font-family: "Roboto-SemiBold", Helvetica, sans-serif;
 }
 
 h3 {
     font-family: "Roboto-Bold", Helvetica, sans-serif;
     font-size: 20px;
-    color: var(--color-heading);
+    color: #ffffff;
     text-align: center;
 }
 
@@ -173,9 +175,10 @@ h3 {
 .price-period {
     font-family: "Roboto-Regular", Helvetica, sans-serif;
     font-size: 14px;
-    color: var(--color-text);
+    color: #ffffff;
     text-align: center;
     margin-top: -15px;
+    opacity: 0.8;
 }
 
 ul {
@@ -189,7 +192,7 @@ li {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 10px;
-    color: var(--color-text);
+    color: #ffffff;
     padding-left: 24px;
     position: relative;
 }
@@ -242,12 +245,16 @@ li::before {
 
 .usc-section {
     background-color: #3e9d26;
-    color: white;
 }
 
 .usc-section h2,
-.usc-section p {
-    color: white;
+.usc-section p,
+.usc-section li {
+    color: #ffffff;
+}
+
+.usc-section li::before {
+    color: #ffffff;
 }
 
 .usc-content {
@@ -263,6 +270,7 @@ p {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 20px;
+    color: #ffffff;
 }
 
 @media (max-width: 768px) {

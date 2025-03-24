@@ -21,7 +21,7 @@
         </ul>
       </section>
 
-      <section class="about-section">
+      <section class="about-section highlight-section">
         <h2>Urban Sports Club Partner</h2>
         <p>Als Partner von Urban Sports Club bieten wir flexible Buchungsmöglichkeiten für unsere Trainingseinheiten.
           USC-Mitglieder können einfach über die App buchen und teilnehmen.</p>
@@ -40,7 +40,8 @@
 .about {
   min-height: 100vh;
   padding: 40px 8%;
-  background-color: var(--color-background);
+  background-color: #0a2025;
+  color: #ffffff;
 }
 
 .about-content {
@@ -52,18 +53,26 @@ h1 {
   font-family: "Roboto-Bold", Helvetica, sans-serif;
   font-size: 32px;
   margin-bottom: 40px;
-  color: var(--color-heading);
+  color: #ffffff;
+  text-align: center;
 }
 
 .about-section {
   margin-bottom: 40px;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.highlight-section {
+  background-color: #3e9d26;
 }
 
 h2 {
   font-family: "Roboto-Bold", Helvetica, sans-serif;
   font-size: 24px;
   margin-bottom: 20px;
-  color: var(--color-heading);
+  color: #ffffff;
 }
 
 p {
@@ -71,7 +80,7 @@ p {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 20px;
-  color: var(--color-text);
+  color: #ffffff;
 }
 
 ul {
@@ -85,7 +94,7 @@ li {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 10px;
-  color: var(--color-text);
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -105,6 +114,7 @@ li {
 
   .about-section {
     margin-bottom: 30px;
+    padding: 20px;
   }
 }
 
@@ -125,6 +135,11 @@ li {
   p,
   li {
     font-size: 14px;
+  }
+
+  .about-section {
+    padding: 15px;
+    margin-bottom: 20px;
   }
 }
 </style>

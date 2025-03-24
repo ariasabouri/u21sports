@@ -69,13 +69,7 @@
 import { ref } from 'vue'
 
 // Import images
-import mainFeatureImage from '@/assets/images/stock/anthomkii_imagine_a_studio_photoshoot_of_professional_athletes__23f93872-3b1c-4f23-845c-ea25f1e1fb63 1.png'
-import ellipse1_1 from '@/assets/images/stock/Ellipse 1_1.png'
-import ellipse1 from '@/assets/images/stock/Ellipse 1.png'
-import ellipse2_1 from '@/assets/images/stock/Ellipse 2_1.png'
-import ellipse2_2 from '@/assets/images/stock/Ellipse 2_2.png'
-import ellipse2_3 from '@/assets/images/stock/Ellipse 2_3.png'
-import ellipse2 from '@/assets/images/stock/Ellipse 2.png'
+import mainFeatureImage from '@/assets/images/img_kagan_1.jpeg'
 
 // Define interfaces for feature and item objects
 interface Feature {
@@ -135,17 +129,17 @@ const menItems = ref([
   {
     title: 'U10-U11',
     description: 'Grundlegendes Techniktraining und Spielverständnis',
-    image: ellipse1_1
+    image: '/src/assets/images/img_kagan_1.jpeg'
   },
   {
     title: 'U12-U13',
     description: 'Aufbauendes Training mit taktischen Elementen',
-    image: ellipse2_1
+    image: '/src/assets/images/img_kagan_2.jpeg'
   },
   {
     title: 'U14-U15',
     description: 'Fortgeschrittenes Training für ambitionierte Spieler',
-    image: ellipse2_2
+    image: '/src/assets/images/img_kagan_1.jpeg'
   }
 ])
 
@@ -154,17 +148,17 @@ const womenItems = ref([
   {
     title: 'Fußballtraining',
     description: 'Technik, Taktik und Spielpraxis',
-    image: ellipse1
+    image: '/src/assets/images/img_kagan_2.jpeg'
   },
   {
     title: 'Athletiktraining',
     description: 'Kraft, Ausdauer und Koordination',
-    image: ellipse2
+    image: '/src/assets/images/img_kagan_1.jpeg'
   },
   {
     title: 'Kombi-Training',
     description: 'Ganzheitliches Training für maximalen Fortschritt',
-    image: ellipse2_3
+    image: '/src/assets/images/img_kagan_2.jpeg'
   }
 ])
 

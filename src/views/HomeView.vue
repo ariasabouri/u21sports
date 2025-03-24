@@ -29,36 +29,36 @@ const trainingTypes = [
   {
     title: 'Fußballtraining',
     description: 'Technik, Taktik und Spielpraxis für alle Niveaus.',
-    image: '/src/assets/images/stock/stock_product_img_1.png'
+    image: '/src/assets/images/img_kagan_1.jpeg'
   },
   {
     title: 'Athletiktraining',
     description: 'Kraft, Ausdauer und Koordination für bessere Leistung.',
-    image: '/src/assets/images/stock/stock_product_img_2.png'
+    image: '/src/assets/images/img_kagan_2.jpeg'
   },
   {
     title: 'Kombi-Training',
     description: 'Die perfekte Verbindung aus Fußball und Athletik.',
-    image: '/src/assets/images/stock/stock_product_img_3.png'
+    image: '/src/assets/images/stock/anthomkii_imagine_a_studio_photoshoot_of_professional_athletes__23f93872-3b1c-4f23-845c-ea25f1e1fb63 1.png'
   }
 ]
 
-// Age groups data
+// Age groups data with Kagan images
 const ageGroups = [
   {
     title: 'U10-U11',
     description: 'Grundlegende Techniken und Spielverständnis',
-    image: '/src/assets/images/stock/Ellipse 1_1.png'
+    image: '/src/assets/images/img_kagan_1.jpeg'
   },
   {
     title: 'U12-U13',
     description: 'Aufbauendes Training mit Taktik',
-    image: '/src/assets/images/stock/Ellipse 2_1.png'
+    image: '/src/assets/images/img_kagan_2.jpeg'
   },
   {
     title: 'U14-U15',
     description: 'Fortgeschrittenes Training',
-    image: '/src/assets/images/stock/Ellipse 2_2.png'
+    image: '/src/assets/images/img_kagan_1.jpeg'
   }
 ]
 

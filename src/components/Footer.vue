@@ -1,18 +1,11 @@
 <template>
   <footer class="site-footer">
-    <div class="nav-section">
-      <FooterNav 
-        :categories="categories"
-        :backgroundColor="navBackgroundColor"
-        @link-click="handleNavLinkClick"
-      />
-    </div>
+    <!--<div class="nav-section">
+      <FooterNav :categories="categories" :backgroundColor="navBackgroundColor" @link-click="handleNavLinkClick" />
+    </div>-->
     <div class="info-section">
-      <FooterInfo
-        :backgroundColor="infoBackgroundColor"
-        @link-click="handleInfoLinkClick"
-        @social-click="handleSocialClick"
-      />
+      <FooterInfo :backgroundColor="infoBackgroundColor" @link-click="handleInfoLinkClick"
+        @social-click="handleSocialClick" />
     </div>
   </footer>
 </template>
@@ -22,23 +15,23 @@ import FooterNav from './FooterNav.vue'
 import FooterInfo from './FooterInfo.vue'
 import { ref } from 'vue'
 
-// Default categories - could be provided from parent if needed
+// Updated categories for football training
 const categories = ref([
   {
-    title: 'Featured',
-    links: ['Velocity', 'Unbound', 'Futurist', 'Grace']
+    title: 'Training',
+    links: ['Fußballtraining', 'Athletiktraining', 'Kombi-Training', 'Probetraining']
   },
   {
-    title: 'Shoes',
-    links: ['All shoes', 'Velocity Shoes', 'Running Shoes', 'Basketball Shoes']
+    title: 'Altersgruppen',
+    links: ['U10-U11', 'U12-U13', 'U14-U15']
   },
   {
-    title: 'Clothing',
-    links: ['All Clothing', 'Tops & T-Shirts', 'Shorts', 'Hoodies & Pullovers']
+    title: 'Standorte',
+    links: ['Hauptstandort', 'Trainingszeiten', 'Anfahrt', 'Partner']
   },
   {
-    title: 'Kids\'',
-    links: ['Infant & Toddler Shoes', 'Kids\' Shoes', 'Kids\' Basketball Shoes', 'Kids\' Running Shoes']
+    title: 'Info & Kontakt',
+    links: ['Über Uns', 'Preise', 'Newsletter', 'FAQ']
   }
 ])
 
