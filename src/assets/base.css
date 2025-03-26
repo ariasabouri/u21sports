@@ -33,6 +33,7 @@
   --app-highlight: #d0d0d0; /* Light gray highlight */
   --app-header: var(--app-background);
   --app-footer: #000000;
+  --app-text-secondary: #333333; /* Dark text for light backgrounds */
   
   /* Semantic mappings */
   --color-primary: var(--app-accent);
@@ -44,6 +45,7 @@
   --color-highlight: var(--app-highlight);
   --color-header: var(--app-header);
   --color-footer: var(--app-footer);
+  --color-text-secondary: var(--app-text-secondary);
 }
 
 /* semantic color variables for this project */

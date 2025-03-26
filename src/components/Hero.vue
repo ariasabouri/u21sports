@@ -25,11 +25,8 @@
           </slot>
         </div>
 
-        <!-- Primary CTA button -->
-        <button v-if="ctaText" class="hero-cta-button" :style="{ backgroundColor: accentColor }"
-          @click="$emit('cta-click')">
-          <span class="hero-cta-text">{{ ctaText }}</span>
-        </button>
+        <!-- Primary CTA button using Button component -->
+        <Button v-if="ctaText" type="primary" :text="ctaText" @click="$emit('cta-click')" />
 
         <!-- Additional slot for custom CTAs -->
         <slot name="cta"></slot>
@@ -41,6 +38,7 @@
 <script setup lang="ts">
 // Using script setup for composition API
 import { computed } from 'vue'
+import Button from '@/components/UI/Button.vue'
 
 // Import background image
 import heroBackground from '@/assets/images/stock/hero_basic.png'

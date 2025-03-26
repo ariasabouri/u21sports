@@ -21,11 +21,12 @@
         </ul>
       </section>
 
-      <section class="about-section highlight-section">
-        <h2>Urban Sports Club Partner</h2>
-        <p>Als Partner von Urban Sports Club bieten wir flexible Buchungsmöglichkeiten für unsere Trainingseinheiten.
-          USC-Mitglieder können einfach über die App buchen und teilnehmen.</p>
-      </section>
+      <HighlightSection title="Urban Sports Club Partner">
+        <template #content>
+          <p>Als Partner von Urban Sports Club bieten wir flexible Buchungsmöglichkeiten für unsere Trainingseinheiten.
+            USC-Mitglieder können einfach über die App buchen und teilnehmen.</p>
+        </template>
+      </HighlightSection>
 
       <section class="about-section">
         <h2>Standorte</h2>
@@ -35,6 +36,10 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import HighlightSection from '@/components/UI/HighlightSection.vue';
+</script>
 
 <style scoped>
 .about {
@@ -58,21 +63,28 @@ h1 {
 }
 
 .about-section {
-  margin-bottom: 40px;
-  padding: 30px;
+  margin-bottom: 30px;
+  padding: 25px;
   border-radius: 10px;
   background-color: var(--color-background-soft);
 }
 
 .highlight-section {
-  background-color: var(--color-primary);
+  background-color: #FFFFFF;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+}
+
+.highlight-section h2,
+.highlight-section p {
+  color: var(--color-text-secondary);
 }
 
 h2 {
   font-family: "Roboto-Bold", Helvetica, sans-serif;
   font-size: 24px;
-  margin-bottom: 20px;
-  color: var(--color-text);
+  margin-bottom: 15px;
+  color: inherit;
 }
 
 p {

@@ -2,7 +2,6 @@
     <div class="pricing">
         <div class="pricing-content">
             <h1>Preise & Mitgliedschaft</h1>
-
             <section class="pricing-section">
                 <h2>Flexible Optionen</h2>
                 <div class="pricing-grid">
@@ -16,9 +15,8 @@
                             <li>Keine Bindung</li>
                             <li>Flexible Buchung</li>
                         </ul>
-                        <button class="pricing-button" @click="handleBooking('single')">Jetzt buchen</button>
+                        <Button text="Jetzt buchen" @click="handleBooking('single')" />
                     </div>
-
                     <div class="pricing-card featured">
                         <div class="featured-badge">Beliebt</div>
                         <h3>10er-Karte</h3>
@@ -30,9 +28,8 @@
                             <li>Frei kombinierbar</li>
                             <li>Übertragbar</li>
                         </ul>
-                        <button class="pricing-button" @click="handleBooking('tenner')">Jetzt buchen</button>
+                        <Button text="Jetzt buchen" @click="handleBooking('tenner')" />
                     </div>
-
                     <div class="pricing-card">
                         <h3>Monatsabo</h3>
                         <div class="price">75€</div>
@@ -43,35 +40,43 @@
                             <li>Alle Trainingsarten</li>
                             <li>Monatlich kündbar</li>
                         </ul>
-                        <button class="pricing-button" @click="handleBooking('monthly')">Jetzt buchen</button>
+                        <Button text="Jetzt buchen" @click="handleBooking('monthly')" />
                     </div>
                 </div>
             </section>
 
-            <section class="pricing-section usc-section">
-                <h2>Urban Sports Club</h2>
-                <div class="usc-content">
-                    <p>Du bist Urban Sports Club Mitglied? Perfekt! Nutze deine Mitgliedschaft für unser Training:</p>
-                    <ul>
-                        <li>Einfache Buchung über die USC-App</li>
-                        <li>Flexible Teilnahme an allen Trainingseinheiten</li>
-                        <li>Keine zusätzlichen Kosten (abhängig von deiner USC-Mitgliedschaft)</li>
-                    </ul>
-                    <button class="usc-button" @click="handleUSC">Mehr zu Urban Sports Club</button>
-                </div>
-            </section>
+            <HighlightSection title="Urban Sports Club">
+                <template #content>
+                    <div class="usc-content">
+                        <p>Du bist Urban Sports Club Mitglied? Perfekt! Nutze deine Mitgliedschaft für unser Training:
+                        </p>
+                        <ul>
+                            <li>Einfache Buchung über die USC-App</li>
+                            <li>Flexible Teilnahme an allen Trainingseinheiten</li>
+                            <li>Keine zusätzlichen Kosten (abhängig von deiner USC-Mitgliedschaft)</li>
+                        </ul>
+                        <Button text="Mehr zu Urban Sports Club" @click="handleUSC" />
+                    </div>
+                </template>
+            </HighlightSection>
 
-            <section class="pricing-section trial-section">
-                <h2>Kostenlose Probestunde</h2>
-                <p>Überzeuge dich selbst von der Qualität unseres Trainings. Vereinbare jetzt dein kostenloses
-                    Probetraining!</p>
-                <button class="trial-button" @click="handleTrial">Probetraining buchen</button>
-            </section>
+            <HighlightSection title="Kostenlose Probestunde">
+                <template #content>
+                    <div class="trial-content">
+                        <p>Überzeuge dich selbst von der Qualität unseres Trainings. Vereinbare jetzt dein kostenloses
+                            Probetraining!</p>
+                        <Button text="Probetraining buchen" @click="handleTrial" />
+                    </div>
+                </template>
+            </HighlightSection>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import HighlightSection from '@/components/UI/HighlightSection.vue';
+import Button from '@/components/UI/Button.vue';
+
 const handleBooking = (type: 'single' | 'tenner' | 'monthly') => {
     // Implement booking logic
     console.log(`Booking ${type} package`)
@@ -257,11 +262,8 @@ li::before {
     color: var(--color-text);
 }
 
-.usc-content {
-    text-align: center;
-}
-
-.trial-section {
+.usc-content,
+.trial-content {
     text-align: center;
 }
 

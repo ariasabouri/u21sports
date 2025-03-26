@@ -16,11 +16,15 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import Hero from '@/components/Hero.vue'
 import Features from '@/components/Features.vue'
 import TrainingTypes from '@/components/TrainingTypes.vue'
 import GridSection from '@/components/GridSection.vue'
 import Membership from '@/components/Membership.vue'
+
+// Setup router
+const router = useRouter();
 
 // Import images
 import kaganImg1 from '@/assets/images/img_kagan_1.jpeg'
@@ -67,11 +71,13 @@ const ageGroups = [
 
 // Event handlers
 function handleTrainingClick(index: number) {
-  console.log('Training type clicked:', trainingTypes[index])
+  // Navigate to TrainingView
+  router.push('/training');
 }
 
 function handleAgeGroupClick(index: number) {
-  console.log('Age group clicked:', ageGroups[index])
+  // Navigate to AgeGroupsView
+  router.push('/age-groups');
 }
 
 function handleJoinClick() {

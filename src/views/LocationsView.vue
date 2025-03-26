@@ -64,17 +64,23 @@
                 </div>
             </section>
 
-            <section class="location-section cta-section">
-                <h2>Kostenlos vorbeischauen</h2>
-                <p>Besuche uns an einem unserer Standorte und überzeuge dich selbst von der Qualität unseres Trainings.
-                </p>
-                <button class="cta-button" @click="handleCtaClick">Probetraining buchen</button>
-            </section>
+            <HighlightSection title="Kostenlos vorbeischauen">
+                <template #content>
+                    <div class="cta-content">
+                        <p>Besuche uns an einem unserer Standorte und überzeuge dich selbst von der Qualität unseres
+                            Trainings.</p>
+                        <Button text="Probetraining buchen" @click="handleCtaClick" />
+                    </div>
+                </template>
+            </HighlightSection>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import HighlightSection from '@/components/UI/HighlightSection.vue';
+import Button from '@/components/UI/Button.vue';
+
 const handleCtaClick = () => {
     // Implement booking logic
     console.log('Location CTA clicked')
@@ -170,14 +176,8 @@ li {
     margin-bottom: 0;
 }
 
-.cta-section {
+.cta-content {
     text-align: center;
-    background-color: var(--color-primary);
-}
-
-.cta-section h2,
-.cta-section p {
-    color: #ffffff;
 }
 
 .cta-button {

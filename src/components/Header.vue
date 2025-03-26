@@ -22,10 +22,8 @@
 
       <nav class="navigation" :class="{ 'is-open': isMobileMenuOpen }">
         <slot name="nav-items">
-          <router-link v-for="(item, index) in navItems" :key="index" :to="item.route" class="nav-item"
-            active-class="nav-item-active" @click="closeMobileMenu">
-            {{ item.label }}
-          </router-link>
+          <NavLink v-for="(item, index) in navItems" :key="index" :to="item.route" :text="item.label"
+            @click="closeMobileMenu" />
         </slot>
       </nav>
 
@@ -43,6 +41,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import NavLink from '@/components/UI/NavLink.vue'
 
 // Define interface for nav item
 interface NavItem {
@@ -159,7 +158,7 @@ const headerStyle = computed(() => {
   align-items: center;
   gap: 11px;
   cursor: pointer;
-  text-decoration: none;
+  text-decoration: none !important;
   color: inherit;
 }
 

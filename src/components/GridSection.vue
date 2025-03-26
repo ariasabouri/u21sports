@@ -33,6 +33,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+// Import arrow icons
+import arrowLeftIcon from '@/assets/icons/ph-arrow-circle-left.svg'
+import arrowRightIcon from '@/assets/icons/ph-arrow-circle-right.svg'
+
 // Define interface for grid item data
 interface GridItem {
   title: string
@@ -75,8 +79,8 @@ const props = withDefaults(defineProps<{
   minWidth: '280px',
   aspectRatio: '16/9',
   showNavigation: true,
-  prevArrowIcon: '/src/assets/icons/ph-arrow-circle-left.svg',
-  nextArrowIcon: '/src/assets/icons/ph-arrow-circle-right.svg',
+  prevArrowIcon: arrowLeftIcon,
+  nextArrowIcon: arrowRightIcon,
   backgroundColor: 'var(--color-background)',
   textColor: 'var(--color-text)',
   accentColor: 'var(--color-primary)',

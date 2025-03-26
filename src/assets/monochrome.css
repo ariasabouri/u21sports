@@ -34,29 +34,30 @@ a.btn:not(.membership-button),
   background: none !important;
 }
 
-button, 
-.btn,
-a.btn,
-[role="button"] {
+/* General button styling - explicitly exclude menu-button */
+button:not(.menu-button), 
+.btn:not(.menu-button),
+a.btn:not(.menu-button),
+[role="button"]:not(.menu-button) {
   border: 2px solid #ffffff !important;
   box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2) !important;
   transition: all 0.3s ease !important;
 }
 
-button:hover, 
-.btn:hover,
-a.btn:hover,
-[role="button"]:hover {
+button:not(.menu-button):hover, 
+.btn:not(.menu-button):hover,
+a.btn:not(.menu-button):hover,
+[role="button"]:not(.menu-button):hover {
   background-color: #ffffff !important;
   color: #000000 !important;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4) !important;
   transform: translateY(-2px) !important;
 }
 
-button:active, 
-.btn:active,
-a.btn:active,
-[role="button"]:active {
+button:not(.menu-button):active, 
+.btn:not(.menu-button):active,
+a.btn:not(.menu-button):active,
+[role="button"]:not(.menu-button):active {
   transform: translateY(0) !important;
 }
 
@@ -213,4 +214,155 @@ img {
   opacity: 1;
   background: none !important;
   box-shadow: none !important;
+}
+
+/* Specific styles for menu-button */
+.menu-button {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+  margin-right: -2em;
+}
+
+.menu-button:hover {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.menu-button.is-active .hamburger-line:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-button.is-active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-button.is-active .hamburger-line:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Fix navigation arrows in TrainingTypes component */
+.frame .navigation {
+  position: static !important;
+  display: flex !important;
+  gap: 10px !important;
+  background: none !important;
+  flex-direction: row !important;
+  z-index: 1 !important;
+}
+
+.frame .navigation .nav-arrow {
+  height: 48px !important;
+  width: 48px !important;
+  cursor: pointer !important;
+  transition: opacity 0.2s ease !important;
+  border-style: none !important;
+  box-shadow: none !important;
+}
+
+.frame .navigation .nav-arrow:hover {
+  opacity: 0.8 !important;
+}
+
+.grid-section .navigation-controls .nav-arrow {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .header {
+    padding: 16px 5%;
+  }
+
+  .header-left {
+    gap: 30px;
+  }
+
+  .navigation {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-right-content {
+    flex: 1;
+    justify-content: flex-end;
+    margin-right: -5px;
+  }
+
+  .menu-button {
+    display: flex;
+  }
+
+  .header .navigation {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 32, 37, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 90;
+    padding: 80px 20px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .header .navigation.is-open {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-item {
+    font-size: 18px;
+  }
+
+  .header-right {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 12px 4%;
+  }
+
+  .brand-name {
+    font-size: 18px;
+  }
+
+  .brand-tagline {
+    font-size: 11px;
+  }
+
+  .header .navigation.is-open {
+    padding: 60px 20px;
+  }
+
+  .nav-item {
+    font-size: 16px;
+  }
 }
