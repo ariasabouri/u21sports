@@ -177,12 +177,17 @@ const bgImageStyle = computed(() => ({
   padding: 12px 30px;
   border-radius: 10px;
   cursor: pointer;
-  transition: opacity 0.2s ease;
-  background-color: var(--color-primary);
+  transition: all 0.3s ease;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-cta-button:hover {
-  background-color: var(--color-primary-hover);
+  background-color: #ffffff !important;
+  color: #000000 !important;
   opacity: 1;
 }
 

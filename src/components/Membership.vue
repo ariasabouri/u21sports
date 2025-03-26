@@ -121,7 +121,7 @@ const buttonStyle = computed(() => ({
   width: 100%;
   padding: 40px;
   border-radius: 10px;
-  background-color: var(--color-primary);
+  background-color: #000000;
   min-height: 300px;
   position: relative;
 }
@@ -164,6 +164,10 @@ const buttonStyle = computed(() => ({
   font-size: 48px;
   font-weight: 700;
   line-height: normal;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 2;
 }
 
 .banner-subheading {
@@ -172,6 +176,10 @@ const buttonStyle = computed(() => ({
   font-weight: 400;
   line-height: normal;
   margin: 0;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 2;
 }
 
 .banner-actions {
@@ -190,12 +198,17 @@ const buttonStyle = computed(() => ({
   border-radius: 10px;
   cursor: pointer;
   transition: opacity 0.2s ease;
-  background-color: var(--color-text);
-  color: var(--color-primary);
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  position: relative;
+  z-index: 2;
 }
 
 .membership-button:hover {
-  opacity: 0.9;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  opacity: 1;
 }
 
 .button-text {
@@ -240,7 +253,8 @@ const buttonStyle = computed(() => ({
     font-size: 28px;
   }
 
-  .banner-subheading {  font-size: 16px;
+  .banner-subheading {
+    font-size: 16px;
   }
 
   .banner-actions {

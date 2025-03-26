@@ -1,0 +1,216 @@
+/* 
+ * monochrome.css
+ * Enhances UI/UX for a strict black and white color scheme
+ */
+
+/* Base button styles - only apply to buttons with specific classes */
+.btn-primary,
+.btn-secondary,
+.btn-action,
+button.btn-primary,
+button.btn-secondary,
+button.btn-action {
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Remove default styles from all other buttons */
+button:not(.btn-primary):not(.btn-secondary):not(.btn-action):not(.membership-button):not(.menu-button),
+.btn:not(.btn-primary):not(.btn-secondary):not(.btn-action):not(.membership-button),
+[role="button"]:not(.btn-primary):not(.btn-secondary):not(.btn-action):not(.membership-button) {
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+
+/* Improve button visibility with stronger borders and shadows */
+button:not(.membership-button):not(.menu-button), 
+.btn:not(.membership-button),
+a.btn:not(.membership-button),
+[role="button"]:not(.membership-button) {
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+
+button, 
+.btn,
+a.btn,
+[role="button"] {
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+button:hover, 
+.btn:hover,
+a.btn:hover,
+[role="button"]:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+button:active, 
+.btn:active,
+a.btn:active,
+[role="button"]:active {
+  transform: translateY(0) !important;
+}
+
+/* Navigation buttons specific styling */
+.nav-button {
+  opacity: 0.7;
+  transition: opacity 0.3s ease !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.nav-button:hover {
+  opacity: 1;
+  background: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Keep strong button styling only for important action buttons */
+.btn-action,
+button.btn-action {
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Improve cards and sections with stronger borders */
+.card,
+section,
+.section,
+article {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Improve focus states for better accessibility */
+:focus {
+  outline: 2px dashed #ffffff !important;
+  outline-offset: 2px !important;
+}
+
+/* Enhanced typography for visual hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.5px !important;
+}
+
+h1 {
+  font-weight: 900 !important;
+  font-size: 2.5rem !important;
+}
+
+h2 {
+  font-weight: 700 !important;
+  font-size: 2rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  padding-bottom: 0.5rem !important;
+}
+
+/* Improve link visibility */
+a:not(.btn) {
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  font-weight: 600 !important;
+}
+
+a:not(.btn):hover {
+  text-decoration-thickness: 2px !important;
+  opacity: 0.9 !important;
+}
+
+/* Improve form controls */
+input, 
+select, 
+textarea {
+  border: 2px solid rgba(255, 255, 255, 0.7) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+input:focus, 
+select:focus, 
+textarea:focus {
+  border-color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Add texture to sections for depth */
+.hero,
+.features,
+.membership,
+.training-types {
+  position: relative !important;
+}
+
+.hero::before,
+.features::before,
+.membership::before,
+.training-types::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-image: linear-gradient(45deg, #101010 25%, transparent 25%, transparent 50%, #101010 50%, #101010 75%, transparent 75%, transparent) !important;
+  background-size: 4px 4px !important;
+  opacity: 0.05 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* Improve UI element visibility with subtle gradients */
+.header,
+.footer,
+.nav {
+  background: linear-gradient(to bottom, #000000, #0a0a0a) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Add box shadow to images for depth */
+img {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Remove the faint grey boxes around navigation buttons and improve their visibility in monochrome theme */
+[role="button"].nav-button {
+  background: none !important;
+  box-shadow: none !important;
+  border-style: none !important;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+
+[role="button"].nav-button:hover {
+  opacity: 1;
+  transform: scale(1.1) !important;
+  background: none !important;
+  box-shadow: none !important;
+  border-style: none !important;
+}
+
+/* Navigation buttons */
+.nav-button,
+[role="button"].nav-button {
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  opacity: 0.7;
+  transition: opacity 0.3s ease !important;
+}
+
+.nav-button:hover,
+[role="button"].nav-button:hover {
+  opacity: 1;
+  background: none !important;
+  box-shadow: none !important;
+}

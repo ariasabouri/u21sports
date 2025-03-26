@@ -23,14 +23,14 @@
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 
-  /* Custom colors */
-  --app-background: #0a2025;
-  --app-background-soft: rgba(255, 255, 255, 0.05);
-  --app-accent: #1a490f;
-  --app-accent-hover: #2c671e;
-  --app-text: #ffffff;
-  --app-text-muted: rgba(255, 255, 255, 0.8);
-  --app-highlight: #449596;
+  /* Custom colors - Black and White Only */
+  --app-background: #000000; /* True black background */
+  --app-background-soft: #121212; /* Very dark gray for subtle contrast */
+  --app-accent: #ffffff; /* Pure white for accents */
+  --app-accent-hover: #e0e0e0; /* Light gray for hover states */
+  --app-text: #ffffff; /* White text */
+  --app-text-muted: rgba(255, 255, 255, 0.7); /* Slightly transparent white */
+  --app-highlight: #d0d0d0; /* Light gray highlight */
   --app-header: var(--app-background);
   --app-footer: #000000;
   

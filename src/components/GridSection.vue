@@ -154,6 +154,7 @@ const getGridItemStyle = (item: GridItem) => {
   width: 48px;
   cursor: pointer;
   transition: opacity 0.2s ease;
+  border-style: none !important;
 }
 
 .nav-arrow:hover {

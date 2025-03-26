@@ -202,10 +202,38 @@ const headerStyle = computed(() => {
   transition: opacity 0.2s ease;
   text-decoration: none;
   color: inherit;
+  position: relative;
+  padding-bottom: 2px;
 }
 
 .nav-item-active {
-  color: var(--color-primary);
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.nav-item-active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  transform-origin: center;
+  transform: scaleX(1);
+}
+
+.nav-item:not(.nav-item-active):hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  transform-origin: center;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
 .nav-item:hover {
