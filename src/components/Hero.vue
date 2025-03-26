@@ -26,7 +26,8 @@
         </div>
 
         <!-- Primary CTA button using Button component -->
-        <Button v-if="ctaText" type="primary" :text="ctaText" @click="$emit('cta-click')" />
+        <Button v-if="ctaText" type="primary" background-color="transparent" :text="ctaText"
+          @click="$emit('cta-click')" />
 
         <!-- Additional slot for custom CTAs -->
         <slot name="cta"></slot>

@@ -19,14 +19,13 @@
 
         <div class="banner-actions">
           <slot name="banner-actions">
-            <button class="membership-button" :style="buttonStyle" @click="$emit('join-click')">
+            <Button class="membership-button" :style="buttonStyle" @click="$emit('join-click')">
               <div class="button-text">{{ joinButtonText }}</div>
-            </button>
+            </Button>
 
-            <button class="membership-button" :style="buttonStyle" @click="$emit('signin-click')">
+            <Button class="membership-button" :style="buttonStyle" @click="$emit('signin-click')">
               <div class="button-text">{{ signinButtonText }}</div>
-            </button>
-            <Button type="primary" size="large" text="ctaText" />
+            </Button>
           </slot>
         </div>
       </div>

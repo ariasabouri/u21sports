@@ -127,6 +127,7 @@ const sectionStyle = computed(() => ({
 .navigation {
   display: flex;
   gap: 10px;
+  margin-bottom: 1em;
 }
 
 .nav-arrow {
