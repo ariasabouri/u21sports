@@ -2,9 +2,11 @@
 import { RouterView } from 'vue-router'
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
+import Promo from './components/Promo.vue'
 </script>
 
 <template>
+  <Promo />
   <Header />
   <RouterView />
   <Footer />

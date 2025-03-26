@@ -18,7 +18,6 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 import Hero from '@/components/Hero.vue'
-import Features from '@/components/Features.vue'
 import TrainingTypes from '@/components/TrainingTypes.vue'
 import GridSection from '@/components/GridSection.vue'
 import Membership from '@/components/Membership.vue'
