@@ -69,8 +69,8 @@ const props = withDefaults(defineProps<{
   linkText: 'Mehr erfahren',
   ctaText: 'Jetzt anmelden',
   arrowIcon: '/src/assets/icons/ph-arrow-right.svg',
-  accentColor: '#3e9d26',
-  textColor: '#ffffff',
+  accentColor: 'var(--color-primary)',
+  textColor: 'var(--color-text)',
   backgroundImage: heroBackground
 })
 
@@ -99,6 +99,7 @@ const bgImageStyle = computed(() => ({
   position: relative;
   background-image: url('@/assets/images/stock/hero_basic.png');
   /* Fallback image */
+  color: var(--color-text);
 }
 
 .hero-content {
@@ -125,12 +126,12 @@ const bgImageStyle = computed(() => ({
 }
 
 .hero-title-primary {
-  color: var(--hero-text-color, #ffffff);
+  color: var(--color-text);
 }
 
 .hero-title-accent {
   margin-left: 10px;
-  color: var(--hero-accent-color, #3e9d26);
+  color: var(--color-primary);
 }
 
 .hero-subtitle {
@@ -138,7 +139,7 @@ const bgImageStyle = computed(() => ({
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
-  color: var(--hero-text-color, #ffffff);
+  color: var(--color-text-muted);
 }
 
 .hero-cta-container {
@@ -156,7 +157,7 @@ const bgImageStyle = computed(() => ({
 }
 
 .hero-link-text {
-  color: var(--hero-text-color, #ffffff);
+  color: var(--color-text);
   font-family: "Roboto-Regular", Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -177,15 +178,16 @@ const bgImageStyle = computed(() => ({
   border-radius: 10px;
   cursor: pointer;
   transition: opacity 0.2s ease;
-  background-color: var(--hero-accent-color, #3e9d26);
+  background-color: var(--color-primary);
 }
 
 .hero-cta-button:hover {
-  opacity: 0.9;
+  background-color: var(--color-primary-hover);
+  opacity: 1;
 }
 
 .hero-cta-text {
-  color: #ffffff;
+  color: var(--color-text);
   font-family: "Roboto-SemiBold", Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 600;

@@ -94,10 +94,10 @@ const props = withDefaults(defineProps<{
     { label: 'KONTAKT', route: '/contact' }
   ],
   rightIcons: () => [],
-  backgroundColor: '#0a2025',
-  textColor: '#ffffff',
-  gradientStart: 'rgba(10, 34, 39, 1)',
-  gradientEnd: 'rgba(9, 15, 15, 1)',
+  backgroundColor: 'var(--color-header)',
+  textColor: 'var(--color-text)',
+  gradientStart: 'var(--color-header)',
+  gradientEnd: 'var(--color-background-soft)',
   useGradient: true
 })
 
@@ -205,7 +205,7 @@ const headerStyle = computed(() => {
 }
 
 .nav-item-active {
-  color: #3e9d26;
+  color: var(--color-primary);
 }
 
 .nav-item:hover {
@@ -248,12 +248,13 @@ const headerStyle = computed(() => {
   cursor: pointer;
   position: relative;
   z-index: 100;
+  margin-right: -2em;
 }
 
 .hamburger-line {
   width: 100%;
   height: 2px;
-  background-color: var(--vt-c-white);
+  background-color: var(--color-text);
   transition: all 0.3s ease;
 }
 
@@ -288,6 +289,7 @@ const headerStyle = computed(() => {
   .header-right-content {
     flex: 1;
     justify-content: flex-end;
+    margin-right: -5px;
   }
 
   .menu-button {

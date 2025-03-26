@@ -92,8 +92,8 @@ const handleTrial = () => {
 .pricing {
     min-height: 100vh;
     padding: 40px 8%;
-    background-color: #0a2025;
-    color: #ffffff;
+    background-color: var(--color-background);
+    color: var(--color-text);
 }
 
 .pricing-content {
@@ -105,7 +105,7 @@ h1 {
     font-family: "Roboto-Bold", Helvetica, sans-serif;
     font-size: 32px;
     margin-bottom: 40px;
-    color: #ffffff;
+    color: var(--color-text);
     text-align: center;
 }
 
@@ -113,14 +113,14 @@ h1 {
     margin-bottom: 50px;
     padding: 30px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--color-background-soft);
 }
 
 h2 {
     font-family: "Roboto-Bold", Helvetica, sans-serif;
     font-size: 24px;
     margin-bottom: 30px;
-    color: #ffffff;
+    color: var(--color-text);
     text-align: center;
 }
 
@@ -134,7 +134,7 @@ h2 {
 .pricing-card {
     padding: 30px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--color-background-soft);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -142,7 +142,7 @@ h2 {
 }
 
 .featured {
-    border: 2px solid #3e9d26;
+    border: 2px solid var(--color-primary);
     transform: scale(1.05);
 }
 
@@ -150,8 +150,8 @@ h2 {
     position: absolute;
     top: -12px;
     right: 20px;
-    background-color: #3e9d26;
-    color: white;
+    background-color: var(--color-primary);
+    color: var(--color-text);
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 14px;
@@ -161,21 +161,21 @@ h2 {
 h3 {
     font-family: "Roboto-Bold", Helvetica, sans-serif;
     font-size: 20px;
-    color: #ffffff;
+    color: var(--color-text);
     text-align: center;
 }
 
 .price {
     font-family: "Roboto-Bold", Helvetica, sans-serif;
     font-size: 36px;
-    color: #3e9d26;
+    color: var(--color-primary);
     text-align: center;
 }
 
 .price-period {
     font-family: "Roboto-Regular", Helvetica, sans-serif;
     font-size: 14px;
-    color: #ffffff;
+    color: var(--color-text-muted);
     text-align: center;
     margin-top: -15px;
     opacity: 0.8;
@@ -192,7 +192,7 @@ li {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 10px;
-    color: #ffffff;
+    color: var(--color-text);
     padding-left: 24px;
     position: relative;
 }
@@ -201,7 +201,7 @@ li::before {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #3e9d26;
+    color: var(--color-primary);
 }
 
 .pricing-button,
@@ -222,18 +222,18 @@ li::before {
 }
 
 .pricing-button {
-    background-color: #3e9d26;
-    color: white;
+    background-color: var(--color-primary);
+    color: var(--color-text);
 }
 
 .usc-button {
-    background-color: white;
-    color: #3e9d26;
+    background-color: var(--color-text);
+    color: var(--color-primary);
 }
 
 .trial-button {
-    background-color: #3e9d26;
-    color: white;
+    background-color: var(--color-primary);
+    color: var(--color-text);
     margin: 20px auto 0;
 }
 
@@ -244,17 +244,17 @@ li::before {
 }
 
 .usc-section {
-    background-color: #3e9d26;
+    background-color: var(--color-primary);
 }
 
 .usc-section h2,
 .usc-section p,
 .usc-section li {
-    color: #ffffff;
+    color: var(--color-text);
 }
 
 .usc-section li::before {
-    color: #ffffff;
+    color: var(--color-text);
 }
 
 .usc-content {
@@ -270,7 +270,7 @@ p {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 20px;
-    color: #ffffff;
+    color: var(--color-text);
 }
 
 @media (max-width: 768px) {

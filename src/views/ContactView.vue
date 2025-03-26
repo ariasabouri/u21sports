@@ -125,8 +125,8 @@ const handleSubmit = () => {
 .contact {
     min-height: 100vh;
     padding: 40px 8%;
-    background-color: #0a2025;
-    color: #ffffff;
+    background-color: var(--color-background);
+    color: var(--color-text);
 }
 
 .contact-content {
@@ -138,7 +138,7 @@ h1 {
     font-family: "Roboto-Bold", Helvetica, sans-serif;
     font-size: 32px;
     margin-bottom: 40px;
-    color: #ffffff;
+    color: var(--color-text);
     text-align: center;
 }
 
@@ -151,14 +151,14 @@ h1 {
 .contact-section {
     padding: 30px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--color-background-soft);
 }
 
 h2 {
     font-family: "Roboto-Bold", Helvetica, sans-serif;
     font-size: 24px;
     margin-bottom: 30px;
-    color: #ffffff;
+    color: var(--color-text);
 }
 
 .contact-form {
@@ -176,17 +176,17 @@ h2 {
 label {
     font-family: "Roboto-SemiBold", Helvetica, sans-serif;
     font-size: 14px;
-    color: #ffffff;
+    color: var(--color-text);
 }
 
 input,
 select,
 textarea {
     padding: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--color-background-soft);
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #ffffff;
+    background-color: var(--color-background-soft);
+    color: var(--color-text);
     font-family: "Roboto-Regular", Helvetica, sans-serif;
     font-size: 16px;
 }
@@ -195,7 +195,7 @@ input:focus,
 select:focus,
 textarea:focus {
     outline: none;
-    border-color: #3e9d26;
+    border-color: var(--color-primary);
 }
 
 .submit-button {
@@ -207,8 +207,8 @@ textarea:focus {
     border-radius: 10px;
     cursor: pointer;
     transition: opacity 0.2s ease;
-    background-color: #3e9d26;
-    color: #ffffff;
+    background-color: var(--color-primary);
+    color: var(--color-text);
     font-family: "Roboto-SemiBold", Helvetica, sans-serif;
     font-size: 14px;
     font-weight: 600;
@@ -242,7 +242,7 @@ textarea:focus {
 
 strong {
     font-family: "Roboto-SemiBold", Helvetica, sans-serif;
-    color: #ffffff;
+    color: var(--color-text);
     display: block;
     margin-bottom: 5px;
 }
@@ -252,7 +252,7 @@ p {
     font-size: 16px;
     line-height: 1.6;
     margin: 0;
-    color: #ffffff;
+    color: var(--color-text);
 }
 
 .social-icons {
@@ -268,7 +268,7 @@ p {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--color-background-soft);
     transition: all 0.2s ease;
 }
 
@@ -278,7 +278,7 @@ p {
 }
 
 .social-icon:hover {
-    background-color: #3e9d26;
+    background-color: var(--color-primary);
     transform: scale(1.1);
 }
 

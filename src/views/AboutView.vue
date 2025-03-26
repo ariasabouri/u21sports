@@ -40,8 +40,8 @@
 .about {
   min-height: 100vh;
   padding: 40px 8%;
-  background-color: #0a2025;
-  color: #ffffff;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 .about-content {
@@ -53,7 +53,7 @@ h1 {
   font-family: "Roboto-Bold", Helvetica, sans-serif;
   font-size: 32px;
   margin-bottom: 40px;
-  color: #ffffff;
+  color: var(--color-text);
   text-align: center;
 }
 
@@ -61,18 +61,18 @@ h1 {
   margin-bottom: 40px;
   padding: 30px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--color-background-soft);
 }
 
 .highlight-section {
-  background-color: #3e9d26;
+  background-color: var(--color-primary);
 }
 
 h2 {
   font-family: "Roboto-Bold", Helvetica, sans-serif;
   font-size: 24px;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 p {
@@ -80,7 +80,7 @@ p {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 ul {
@@ -94,7 +94,7 @@ li {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 10px;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 @media (max-width: 768px) {

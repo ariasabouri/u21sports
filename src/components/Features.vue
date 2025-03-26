@@ -295,7 +295,7 @@ const sectionStyle = {
 .category-item {
   display: flex;
   gap: 20px;
-  align-items: center;
+  align-items: flex-start;
   min-height: 90px;
 }
 
@@ -305,12 +305,14 @@ const sectionStyle = {
   border-radius: 50%;
   object-fit: cover;
   background-color: #ffffff;
+  flex-shrink: 0;
 }
 
 .item-content {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  flex: 1;
 }
 
 .item-description {
@@ -395,12 +397,23 @@ const sectionStyle = {
   }
 
   .category-item {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+  }
+
+  .item-image {
+    width: 60px;
+    height: 60px;
   }
 
   .item-content {
-    width: 100%;
+    gap: 8px;
+  }
+
+  .item-description {
+    font-size: 13px;
   }
 }
 </style>

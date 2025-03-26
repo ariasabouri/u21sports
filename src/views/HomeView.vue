@@ -1,7 +1,7 @@
 <template>
   <main>
     <Hero />
-    <Features />
+    <!--<Features />-->
 
     <!-- Use TrainingTypes component -->
     <TrainingTypes title="Unsere Trainingsarten" :items="trainingTypes" ctaText="Mehr erfahren"

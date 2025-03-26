@@ -60,11 +60,11 @@ const props = withDefaults(defineProps<{
   bannerSubheading: 'Kostenlos anmelden und von professionellem Training profitieren. Auch über Urban Sports Club buchbar!',
   joinButtonText: 'Jetzt Anmelden',
   signinButtonText: 'Einloggen',
-  backgroundColor: '#0a2025',
-  textColor: '#ffffff',
-  accentColor: '#3e9d26',
+  backgroundColor: 'var(--app-background)',
+  textColor: 'var(--app-text)',
+  accentColor: 'var(--app-accent)',
   bannerBackgroundImage: kaganImg2,
-  buttonBackgroundColor: '#ffffff',
+  buttonBackgroundColor: 'var(--app-text)',
   paddingX: '8%',
   paddingY: '40px'
 })
@@ -97,6 +97,8 @@ const buttonStyle = computed(() => ({
   align-items: center;
   gap: 30px;
   width: 100%;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 .membership-header {
@@ -119,7 +121,7 @@ const buttonStyle = computed(() => ({
   width: 100%;
   padding: 40px;
   border-radius: 10px;
-  background-color: rgba(62, 157, 38, 0.85);
+  background-color: var(--color-primary);
   min-height: 300px;
   position: relative;
 }
@@ -188,6 +190,8 @@ const buttonStyle = computed(() => ({
   border-radius: 10px;
   cursor: pointer;
   transition: opacity 0.2s ease;
+  background-color: var(--color-text);
+  color: var(--color-primary);
 }
 
 .membership-button:hover {
@@ -236,8 +240,7 @@ const buttonStyle = computed(() => ({
     font-size: 28px;
   }
 
-  .banner-subheading {
-    font-size: 16px;
+  .banner-subheading {  font-size: 16px;
   }
 
   .banner-actions {

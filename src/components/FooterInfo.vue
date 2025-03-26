@@ -63,7 +63,7 @@ const props = withDefaults(defineProps<{
   aboutLinks?: string[];
   socialIcons?: SocialIcon[];
 }>(), {
-  backgroundColor: '#449596',
+  backgroundColor: 'var(--color-footer)',
   primaryLinks: () => [
     'Probetraining',
     'Newsletter',
@@ -150,7 +150,7 @@ defineEmits<{
 
 .primary-link-first,
 .primary-link {
-  color: #ffffff;
+  color: var(--color-text);
   font-family: "Roboto-Bold", Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -179,7 +179,7 @@ defineEmits<{
 }
 
 .section-title {
-  color: #ffffff;
+  color: var(--color-text);
   font-family: "Roboto-Bold", Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -195,7 +195,7 @@ defineEmits<{
 
 .section-link-first,
 .section-link {
-  color: #ffffff;
+  color: var(--color-text-muted);
   font-family: "Roboto-Regular", Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -229,6 +229,7 @@ defineEmits<{
 .social-icon:hover {
   opacity: 0.8;
   transform: scale(1.1);
+  color: var(--color-primary);
 }
 
 /* Responsive styles */

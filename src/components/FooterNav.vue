@@ -42,7 +42,7 @@ const props = withDefaults(defineProps<{
       links: ['Anmeldung', 'Newsletter', 'FAQ', 'Kontaktformular']
     }
   ],
-  backgroundColor: '#0a2025'
+  backgroundColor: 'var(--color-header)'
 })
 
 // Define emits for link clicks

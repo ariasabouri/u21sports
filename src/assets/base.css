@@ -25,8 +25,25 @@
 
   /* Custom colors */
   --app-background: #0a2025;
-  --app-accent: #3e9d26;
+  --app-background-soft: rgba(255, 255, 255, 0.05);
+  --app-accent: #1a490f;
+  --app-accent-hover: #2c671e;
   --app-text: #ffffff;
+  --app-text-muted: rgba(255, 255, 255, 0.8);
+  --app-highlight: #449596;
+  --app-header: var(--app-background);
+  --app-footer: #000000;
+  
+  /* Semantic mappings */
+  --color-primary: var(--app-accent);
+  --color-primary-hover: var(--app-accent-hover);
+  --color-background: var(--app-background);
+  --color-background-soft: var(--app-background-soft);
+  --color-text: var(--app-text);
+  --color-text-muted: var(--app-text-muted);
+  --color-highlight: var(--app-highlight);
+  --color-header: var(--app-header);
+  --color-footer: var(--app-footer);
 }
 
 /* semantic color variables for this project */

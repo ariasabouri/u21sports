@@ -35,8 +35,8 @@ const categories = ref([
   }
 ])
 
-const navBackgroundColor = '#0a2025'
-const infoBackgroundColor = '#449596'
+const navBackgroundColor = 'var(--color-header)'
+const infoBackgroundColor = 'var(--color-footer)'
 
 // Handle navigation link clicks
 function handleNavLinkClick(payload: { category: string, link: string }) {
@@ -63,12 +63,12 @@ function handleSocialClick(socialNetwork: string) {
 }
 
 .nav-section {
-  background-color: #0a2025;
+  background-color: var(--color-header);
   width: 100%;
 }
 
 .info-section {
-  background-color: #449596;
+  background-color: var(--color-footer);
   width: 100%;
 }
 </style>

@@ -83,8 +83,8 @@ const handleCtaClick = () => {
 .training-types {
     min-height: 100vh;
     padding: 40px 8%;
-    background-color: #0a2025;
-    color: #ffffff;
+    background-color: var(--color-background);
+    color: var(--color-text);
 }
 
 .training-types-content {
@@ -104,7 +104,7 @@ h1 {
     margin-bottom: 50px;
     padding: 30px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--color-background-soft);
 }
 
 h2 {
@@ -149,7 +149,7 @@ li {
 
 .cta-section {
     text-align: center;
-    background-color: #3e9d26;
+    background-color: var(--color-primary);
 }
 
 .cta-button {
@@ -161,8 +161,8 @@ li {
     border-radius: 10px;
     cursor: pointer;
     transition: opacity 0.2s ease;
-    background-color: #ffffff;
-    color: #3e9d26;
+    background-color: var(--color-text);
+    color: var(--color-primary);
     font-family: "Roboto-SemiBold", Helvetica, sans-serif;
     font-size: 14px;
     font-weight: 600;

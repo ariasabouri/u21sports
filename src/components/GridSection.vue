@@ -77,9 +77,9 @@ const props = withDefaults(defineProps<{
   showNavigation: true,
   prevArrowIcon: '/src/assets/icons/ph-arrow-circle-left.svg',
   nextArrowIcon: '/src/assets/icons/ph-arrow-circle-right.svg',
-  backgroundColor: '#0a2025',
-  textColor: '#ffffff',
-  accentColor: '#3e9d26',
+  backgroundColor: 'var(--color-background)',
+  textColor: 'var(--color-text)',
+  accentColor: 'var(--color-primary)',
   imageFit: 'cover'
 })
 
@@ -125,6 +125,8 @@ const getGridItemStyle = (item: GridItem) => {
   gap: 30px;
   padding: 40px 8%;
   width: 100%;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 .grid-section-header {
@@ -139,6 +141,7 @@ const getGridItemStyle = (item: GridItem) => {
   font-size: 24px;
   font-weight: 700;
   white-space: nowrap;
+  color: var(--color-text);
 }
 
 .navigation-controls {
@@ -188,12 +191,14 @@ const getGridItemStyle = (item: GridItem) => {
   font-family: "Roboto-Bold", Helvetica, sans-serif;
   font-size: 24px;
   font-weight: 700;
+  color: var(--color-text);
 }
 
 .item-description {
   font-family: "Roboto-Regular", Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 400;
+  color: var(--color-text-muted);
 }
 
 .item-cta {
@@ -203,10 +208,12 @@ const getGridItemStyle = (item: GridItem) => {
   cursor: pointer;
   width: fit-content;
   transition: opacity 0.2s ease;
+  color: var(--color-primary);
 }
 
 .item-cta:hover {
-  opacity: 0.8;
+  color: var(--color-primary-hover);
+  opacity: 1;
 }
 
 /* Responsive styles */
