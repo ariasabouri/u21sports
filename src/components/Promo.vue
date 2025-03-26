@@ -17,7 +17,7 @@ const hidePromo = () => {
 
 const props = withDefaults(defineProps<{
     // Content
-    promoText: string,
+    promoText?: string,
     ctaLinkText?: string,
     ctaLink?: string,
 }>(), {

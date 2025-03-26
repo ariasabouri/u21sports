@@ -40,7 +40,8 @@
                                 placeholder="Deine Nachricht an uns..." rows="5"></textarea>
                         </div>
 
-                        <Button type="primary" text="Nachricht senden" @click="handleSubmit" />
+                        <Button type="primary" backgroundColor="transparent" text="Nachricht senden"
+                            @click="handleSubmit" />
                     </form>
                 </section>
 

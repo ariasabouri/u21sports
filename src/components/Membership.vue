@@ -26,6 +26,7 @@
             <button class="membership-button" :style="buttonStyle" @click="$emit('signin-click')">
               <div class="button-text">{{ signinButtonText }}</div>
             </button>
+            <Button type="primary" size="large" text="ctaText" />
           </slot>
         </div>
       </div>
@@ -36,6 +37,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import kaganImg2 from '@/assets/images/img_kagan_2.jpeg'
+import Button from './UI/Button.vue';
 
 // Define component props with defaults
 const props = withDefaults(defineProps<{
