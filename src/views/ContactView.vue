@@ -2,50 +2,34 @@
     <div class="contact">
         <div class="contact-content">
             <h1>Kontakt</h1>
-
             <div class="contact-grid">
-                <section class="contact-section form-section">
-                    <h2>Schreib uns</h2>
+                <Section class="form-section">
+                    <template #header>
+                        <h2>Schreib uns</h2>
+                    </template>
+
                     <form class="contact-form" @submit.prevent="handleSubmit">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" v-model="formData.name" required placeholder="Dein Name">
-                        </div>
+                        <FormInput v-model="formData.name" id="name" label="Name" type="text" placeholder="Dein Name"
+                            required />
 
-                        <div class="form-group">
-                            <label for="email">E-Mail</label>
-                            <input type="email" id="email" v-model="formData.email" required
-                                placeholder="deine@email.de">
-                        </div>
+                        <FormInput v-model="formData.email" id="email" label="E-Mail" type="email"
+                            placeholder="deine@email.de" required />
 
-                        <div class="form-group">
-                            <label for="phone">Telefon (optional)</label>
-                            <input type="tel" id="phone" v-model="formData.phone" placeholder="+49 123 45678990">
-                        </div>
+                        <FormInput v-model="formData.phone" id="phone" label="Telefon (optional)" type="tel"
+                            placeholder="+49 123 45678990" />
 
-                        <div class="form-group">
-                            <label for="subject">Betreff</label>
-                            <select id="subject" v-model="formData.subject" required>
-                                <option value="">Bitte wählen</option>
-                                <option value="trial">Probetraining</option>
-                                <option value="booking">Buchungsanfrage</option>
-                                <option value="info">Allgemeine Information</option>
-                                <option value="other">Sonstiges</option>
-                            </select>
-                        </div>
+                        <FormInput v-model="formData.subject" id="subject" label="Betreff" type="select"
+                            placeholder="Bitte wählen" :options="subjectOptions" required />
 
-                        <div class="form-group">
-                            <label for="message">Nachricht</label>
-                            <textarea id="message" v-model="formData.message" required
-                                placeholder="Deine Nachricht an uns..." rows="5"></textarea>
-                        </div>
+                        <FormInput v-model="formData.message" id="message" label="Nachricht" type="textarea"
+                            placeholder="Deine Nachricht an uns..." :rows="5" required />
 
                         <Button type="primary" backgroundColor="transparent" text="Nachricht senden"
                             @click="handleSubmit" />
                     </form>
-                </section>
+                </Section>
 
-                <section class="contact-section info-section">
+                <Section class="info-section">
                     <div class="info-block">
                         <h2>Kontaktinformationen</h2>
                         <div class="contact-info">
@@ -77,37 +61,32 @@
                     <div class="social-links">
                         <h2>Social Media</h2>
                         <div class="social-icons">
-                            <a href="#" class="social-icon" title="Instagram">
-                                <img src="@/assets/icons/ph-instagram-logo.svg" alt="Instagram">
-                            </a>
-                            <a href="#" class="social-icon" title="Facebook">
-                                <img src="@/assets/icons/ph-facebook-logo.svg" alt="Facebook">
-                            </a>
-                            <a href="#" class="social-icon" title="Twitter">
-                                <img src="@/assets/icons/ph-twitter-logo.svg" alt="Twitter">
-                            </a>
-                            <a href="#" class="social-icon" title="YouTube">
-                                <img src="@/assets/icons/ph-youtube-logo.svg" alt="YouTube">
-                            </a>
+                            <SocialIcon network="instagram" />
+                            <SocialIcon network="facebook" />
+                            <SocialIcon network="twitter" />
+                            <SocialIcon network="youtube" />
                         </div>
                     </div>
-                </section>
+                </Section>
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 import Button from '@/components/UI/Button.vue';
+import FormInput from '@/components/UI/FormInput.vue';
+import Section from '@/components/UI/Section.vue';
+import SocialIcon from '@/components/UI/SocialIcon.vue';
 import HighlightSection from '@/components/UI/HighlightSection.vue';
 
 interface FormData {
-    name: string
-    email: string
-    phone: string
-    subject: string
-    message: string
+    name: string;
+    email: string;
+    phone: string;
+    subject: string;
+    message: string;
 }
 
 const formData = ref<FormData>({
@@ -116,12 +95,24 @@ const formData = ref<FormData>({
     phone: '',
     subject: '',
     message: ''
-})
+});
+
+const subjectOptions = [
+    { label: 'Probetraining', value: 'trial' },
+    { label: 'Buchungsanfrage', value: 'booking' },
+    { label: 'Allgemeine Information', value: 'info' },
+    { label: 'Sonstiges', value: 'other' }
+];
 
 const handleSubmit = () => {
     // Implement form submission logic
-    console.log('Form submitted:', formData.value)
-}
+    console.log('Form submitted:', formData.value);
+};
+
+const handleSocialClick = (network: string) => {
+    console.log(`Clicked ${network} social icon`);
+    // Add social media redirect logic here
+};
 </script>
 
 <style scoped>
@@ -151,8 +142,8 @@ h1 {
     gap: 40px;
 }
 
-.contact-section {
-    padding: 30px;
+.form-section,
+.info-section {
     border-radius: 10px;
     background-color: var(--color-background-soft);
 }
@@ -167,60 +158,7 @@ h2 {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-label {
-    font-family: "Roboto-SemiBold", Helvetica, sans-serif;
-    font-size: 14px;
-    color: var(--color-text);
-}
-
-input,
-select,
-textarea {
-    padding: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    background-color: var(--color-background);
-    color: var(--color-text);
-    font-family: "Roboto-Regular", Helvetica, sans-serif;
-    font-size: 16px;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 1px var(--color-primary);
-}
-
-.submit-button {
-    all: unset;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-    background-color: var(--color-primary);
-    color: var(--color-text);
-    font-family: "Roboto-SemiBold", Helvetica, sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    margin-top: 10px;
-}
-
-.submit-button:hover {
-    opacity: 0.9;
+    gap: 5px;
 }
 
 .info-section {
@@ -265,27 +203,6 @@ p {
     margin-top: 15px;
 }
 
-.social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--color-background-soft);
-    transition: all 0.2s ease;
-}
-
-.social-icon img {
-    width: 24px;
-    height: 24px;
-}
-
-.social-icon:hover {
-    background-color: var(--color-primary);
-    transform: scale(1.1);
-}
-
 @media (max-width: 968px) {
     .contact-grid {
         grid-template-columns: 1fr;
@@ -306,10 +223,6 @@ p {
         font-size: 20px;
         margin-bottom: 20px;
     }
-
-    .contact-section {
-        padding: 20px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -326,22 +239,8 @@ p {
         font-size: 18px;
     }
 
-    .contact-section {
-        padding: 15px;
-    }
-
     .social-icons {
         gap: 15px;
-    }
-
-    .social-icon {
-        width: 36px;
-        height: 36px;
-    }
-
-    .social-icon img {
-        width: 20px;
-        height: 20px;
     }
 }
 

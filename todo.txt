@@ -3,12 +3,8 @@
 - Impressum
 - Footer menu
 - Implement fontawesome icons
-- Abstract all UI elements that are reusable into own components
+x - Abstract all UI elements that are reusable into own components
 - Migrate all components to the composition API using the setup syntax
 - When break point at prices and other parts is reached, center the elements of the next line
-- we moved the highlight section into an own component, remove all remaining CSS fragments in other components for the highlight section from them
-
-backup:
-Why does the coloring of the highlight section look completely different on each page?
-1. The about-us page which was perfectly good before this prompt now shows the heading wrong (white text on white background)
-2. Some pages show a dark background for this section, some a white. Make it configurable but the default values should be: white background, var(color-text-secondary) as text color
+x - we moved the highlight section into an own component, remove all remaining CSS fragments in other components for the highlight section from them
+- check naming convention for all components, variables and classes
