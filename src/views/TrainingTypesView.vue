@@ -152,11 +152,6 @@ li {
     color: var(--color-text);
 }
 
-.cta-section {
-    text-align: center;
-    background-color: var(--color-primary);
-}
-
 .cta-button {
     all: unset;
     display: inline-flex;

@@ -137,32 +137,6 @@ li {
     color: var(--color-text);
 }
 
-.cta-section {
-    text-align: center;
-    background-color: var(--color-primary);
-}
-
-.cta-button {
-    all: unset;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-    background-color: var(--color-text);
-    color: var(--color-primary);
-    font-family: "Roboto-SemiBold", Helvetica, sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    margin-top: 20px;
-}
-
-.cta-button:hover {
-    opacity: 0.9;
-}
-
 @media (max-width: 768px) {
     .age-groups {
         padding: 30px 5%;

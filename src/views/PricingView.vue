@@ -192,9 +192,7 @@ li::before {
     color: var(--color-primary);
 }
 
-.pricing-button,
-.usc-button,
-.trial-button {
+.pricing-button {
     all: unset;
     display: flex;
     align-items: center;
@@ -214,40 +212,8 @@ li::before {
     color: var(--color-text);
 }
 
-.usc-button {
-    background-color: var(--color-text);
-    color: var(--color-primary);
-}
-
-.trial-button {
-    background-color: var(--color-primary);
-    color: var(--color-text);
-    margin: 20px auto 0;
-}
-
-.pricing-button:hover,
-.usc-button:hover,
-.trial-button:hover {
+.pricing-button:hover {
     opacity: 0.9;
-}
-
-.usc-section {
-    background-color: var(--color-primary);
-}
-
-.usc-section h2,
-.usc-section p,
-.usc-section li {
-    color: var(--color-text);
-}
-
-.usc-section li::before {
-    color: var(--color-text);
-}
-
-.usc-content,
-.trial-content {
-    text-align: center;
 }
 
 p {
