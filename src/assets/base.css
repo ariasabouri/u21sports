@@ -35,6 +35,13 @@
   --app-footer: #000000;
   --app-text-secondary: #333333; /* Dark text for light backgrounds */
   
+  /* Component styling variables */
+  --u21-btn-border-radius: 10px;
+  --u21-btn-padding: 10px 30px;
+  --u21-btn-transition: all 0.3s ease;
+  --u21-btn-font-weight: 600;
+  --u21-btn-font-size: 14px;
+  
   /* Semantic mappings */
   --color-primary: var(--app-accent);
   --color-primary-hover: var(--app-accent-hover);

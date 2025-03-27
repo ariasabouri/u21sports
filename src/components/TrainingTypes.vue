@@ -2,10 +2,7 @@
   <div class="frame" :style="sectionStyle">
     <div class="header">
       <div class="title">{{ title }}</div>
-      <div v-if="showNavigation" class="navigation">
-        <img class="nav-arrow" alt="Previous" :src="prevArrowIcon" @click="$emit('prev')" />
-        <img class="nav-arrow" alt="Next" :src="nextArrowIcon" @click="$emit('next')" />
-      </div>
+      <NavigationControls v-if="showNavigation" @prev="$emit('prev')" @next="$emit('next')" />
     </div>
 
     <div class="content-container">
@@ -25,6 +22,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import NavigationControls from '@/components/UI/NavigationControls.vue'
 
 // Import default images
 import productImg1 from '@/assets/images/stock/stock_product_img_1.png'
@@ -122,12 +120,6 @@ const sectionStyle = computed(() => ({
   font-weight: 700;
   white-space: nowrap;
   color: var(--color-text);
-}
-
-.navigation {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 1em;
 }
 
 .nav-arrow {

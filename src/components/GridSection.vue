@@ -2,14 +2,8 @@
   <div class="grid-section" :style="sectionStyle">
     <div class="grid-section-header">
       <div class="section-title">{{ title }}</div>
-      <div v-if="showNavigation" class="navigation-controls">
-        <slot name="navigation-start">
-          <img class="nav-arrow" alt="Previous" :src="prevArrowIcon" @click="$emit('prev')" />
-        </slot>
-        <slot name="navigation-end">
-          <img class="nav-arrow" alt="Next" :src="nextArrowIcon" @click="$emit('next')" />
-        </slot>
-      </div>
+      <NavigationControls v-if="showNavigation" :prevArrowIcon="prevArrowIcon" :nextArrowIcon="nextArrowIcon"
+        @prev="$emit('prev')" @next="$emit('next')" />
     </div>
 
     <div class="grid-container" :style="gridContainerStyle">
@@ -32,6 +26,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import NavigationControls from '@/components/UI/NavigationControls.vue'
 
 // Import arrow icons
 import arrowLeftIcon from '@/assets/icons/ph-arrow-circle-left.svg'
@@ -146,23 +141,6 @@ const getGridItemStyle = (item: GridItem) => {
   font-weight: 700;
   white-space: nowrap;
   color: var(--color-text);
-}
-
-.navigation-controls {
-  display: flex;
-  gap: 10px;
-}
-
-.nav-arrow {
-  height: 48px;
-  width: 48px;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-  border-style: none !important;
-}
-
-.nav-arrow:hover {
-  opacity: 0.8;
 }
 
 .grid-container {

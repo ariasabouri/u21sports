@@ -190,9 +190,9 @@ input,
 select,
 textarea {
     padding: 12px;
-    border: 1px solid var(--color-background-soft);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
-    background-color: var(--color-background-soft);
+    background-color: var(--color-background);
     color: var(--color-text);
     font-family: "Roboto-Regular", Helvetica, sans-serif;
     font-size: 16px;
@@ -203,6 +203,7 @@ select:focus,
 textarea:focus {
     outline: none;
     border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
 }
 
 .submit-button {

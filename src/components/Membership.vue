@@ -19,11 +19,11 @@
 
         <div class="banner-actions">
           <slot name="banner-actions">
-            <Button class="membership-button" :style="buttonStyle" @click="$emit('join-click')">
+            <Button variant="primary" :exempt="true" backgroundColor="transparent" @click="$emit('join-click')">
               <div class="button-text">{{ joinButtonText }}</div>
             </Button>
 
-            <Button class="membership-button" :style="buttonStyle" @click="$emit('signin-click')">
+            <Button variant="secondary" :exempt="true" backgroundColor="transparent" @click="$emit('signin-click')">
               <div class="button-text">{{ signinButtonText }}</div>
             </Button>
           </slot>
@@ -52,7 +52,6 @@ const props = withDefaults(defineProps<{
   textColor?: string
   accentColor?: string
   bannerBackgroundImage?: string
-  buttonBackgroundColor?: string
   paddingX?: string
   paddingY?: string
 }>(), {
@@ -61,11 +60,9 @@ const props = withDefaults(defineProps<{
   bannerSubheading: 'Kostenlos anmelden und von professionellem Training profitieren. Auch über Urban Sports Club buchbar!',
   joinButtonText: 'Jetzt Anmelden',
   signinButtonText: 'Einloggen',
-  backgroundColor: 'var(--app-background)',
   textColor: 'var(--app-text)',
   accentColor: 'var(--app-accent)',
   bannerBackgroundImage: kaganImg2,
-  buttonBackgroundColor: 'var(--app-text)',
   paddingX: '8%',
   paddingY: '40px'
 })
@@ -84,11 +81,6 @@ const sectionStyle = computed(() => ({
 }))
 
 const bannerStyle = computed(() => ({}))
-
-const buttonStyle = computed(() => ({
-  backgroundColor: props.buttonBackgroundColor,
-  color: props.accentColor
-}))
 </script>
 
 <style scoped>
@@ -189,29 +181,6 @@ const buttonStyle = computed(() => ({
   gap: 20px;
 }
 
-.membership-button {
-  all: unset;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 30px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-  background-color: #000000 !important;
-  color: #ffffff !important;
-  border: 2px solid #ffffff !important;
-  position: relative;
-  z-index: 2;
-}
-
-.membership-button:hover {
-  background-color: #ffffff !important;
-  color: #000000 !important;
-  opacity: 1;
-}
-
 .button-text {
   font-family: "Roboto-SemiBold", Helvetica, sans-serif;
   font-size: 14px;
@@ -260,10 +229,6 @@ const buttonStyle = computed(() => ({
 
   .banner-actions {
     flex-direction: column;
-    width: 100%;
-  }
-
-  .membership-button {
     width: 100%;
   }
 }

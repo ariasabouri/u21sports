@@ -3,6 +3,11 @@
  * Enhances UI/UX for a strict black and white color scheme
  */
 
+/*
+ * BUTTON STYLING
+ * These styles only apply to buttons without our component-specific classes
+ */
+
 /* Base button styles - only apply to buttons with specific classes */
 .btn-primary,
 .btn-secondary,
@@ -10,79 +15,63 @@
 button.btn-primary,
 button.btn-secondary,
 button.btn-action {
-  border: 2px solid #ffffff !important;
-  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2) !important;
-  transition: all 0.3s ease !important;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
 }
 
-/* Remove default styles from all other buttons */
-button:not(.btn-primary):not(.btn-secondary):not(.btn-action):not(.membership-button):not(.menu-button),
-.btn:not(.btn-primary):not(.btn-secondary):not(.btn-action):not(.membership-button),
-[role="button"]:not(.btn-primary):not(.btn-secondary):not(.btn-action):not(.membership-button) {
-  border: none !important;
-  box-shadow: none !important;
-  background: none !important;
+/* 
+ * Keep global button styles ONLY for non-component buttons 
+ * Exempt our component buttons with u21-button--exempt class
+ */
+button:not(.u21-button--exempt):not(.menu-button), 
+.btn:not(.u21-button--exempt),
+a.btn:not(.u21-button--exempt),
+[role="button"]:not(.u21-button--exempt) {
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
 }
 
-/* Improve button visibility with stronger borders and shadows */
-button:not(.membership-button):not(.menu-button), 
-.btn:not(.membership-button),
-a.btn:not(.membership-button),
-[role="button"]:not(.membership-button) {
-  border: none !important;
-  box-shadow: none !important;
-  background: none !important;
+button:not(.u21-button--exempt):not(.menu-button):hover, 
+.btn:not(.u21-button--exempt):hover,
+a.btn:not(.u21-button--exempt):hover,
+[role="button"]:not(.u21-button--exempt):hover {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
 }
 
-/* General button styling - explicitly exclude menu-button */
-button:not(.menu-button), 
-.btn:not(.menu-button),
-a.btn:not(.menu-button),
-[role="button"]:not(.menu-button) {
-  border: 2px solid #ffffff !important;
-  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2) !important;
-  transition: all 0.3s ease !important;
-}
-
-button:not(.menu-button):hover, 
-.btn:not(.menu-button):hover,
-a.btn:not(.menu-button):hover,
-[role="button"]:not(.menu-button):hover {
-  background-color: #ffffff !important;
-  color: #000000 !important;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4) !important;
-  transform: translateY(-2px) !important;
-}
-
-button:not(.menu-button):active, 
-.btn:not(.menu-button):active,
-a.btn:not(.menu-button):active,
-[role="button"]:not(.menu-button):active {
-  transform: translateY(0) !important;
+button:not(.u21-button--exempt):not(.menu-button):active, 
+.btn:not(.u21-button--exempt):active,
+a.btn:not(.u21-button--exempt):active,
+[role="button"]:not(.u21-button--exempt):active {
+  transform: translateY(0);
 }
 
 /* Navigation buttons specific styling */
-.nav-button {
+.nav-button:not(.u21-button--exempt) {
   opacity: 0.7;
-  transition: opacity 0.3s ease !important;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
+  transition: opacity 0.3s ease;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
-.nav-button:hover {
+.nav-button:not(.u21-button--exempt):hover {
   opacity: 1;
-  background: none !important;
-  box-shadow: none !important;
-  transform: none !important;
+  background: none;
+  box-shadow: none;
+  transform: none;
 }
 
 /* Keep strong button styling only for important action buttons */
-.btn-action,
-button.btn-action {
-  border: 2px solid #ffffff !important;
-  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2) !important;
-  transition: all 0.3s ease !important;
+.btn-action:not(.u21-button--exempt),
+button.btn-action:not(.u21-button--exempt) {
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
 }
 
 /* Improve cards and sections with stronger borders */
@@ -90,57 +79,94 @@ button.btn-action {
 section,
 .section,
 article {
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Improve focus states for better accessibility */
 :focus {
-  outline: 2px dashed #ffffff !important;
-  outline-offset: 2px !important;
+  outline: 2px dashed #ffffff;
+  outline-offset: 2px;
 }
 
 /* Enhanced typography for visual hierarchy */
 h1, h2, h3, h4, h5, h6 {
-  letter-spacing: 0.5px !important;
+  letter-spacing: 0.5px;
 }
 
 h1 {
-  font-weight: 900 !important;
-  font-size: 2.5rem !important;
+  font-weight: 900;
+  font-size: 2.5rem;
 }
 
 h2 {
-  font-weight: 700 !important;
-  font-size: 2rem !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-  padding-bottom: 0.5rem !important;
+  font-weight: 700;
+  font-size: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
 }
 
 /* Improve link visibility */
-a:not(.btn) {
-  text-decoration: underline !important;
-  text-underline-offset: 3px !important;
-  font-weight: 600 !important;
+a:not(.btn):not(.u21-button--exempt) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
 }
 
-a:not(.btn):hover {
-  text-decoration-thickness: 2px !important;
-  opacity: 0.9 !important;
+a:not(.btn):not(.u21-button--exempt):hover {
+  text-decoration-thickness: 2px;
+  opacity: 0.9;
 }
 
 /* Improve form controls */
 input, 
 select, 
 textarea {
-  border: 2px solid rgba(255, 255, 255, 0.7) !important;
-  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 8px;
+  color: var(--color-text, #ffffff);
+  font-family: "Roboto-Regular", Helvetica, sans-serif;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 input:focus, 
 select:focus, 
 textarea:focus {
-  border-color: #ffffff !important;
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Style for select dropdown arrow */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+  padding-right: 40px;
+}
+
+label {
+  font-family: "Roboto-SemiBold", Helvetica, sans-serif;
+  font-size: 14px;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+/* Class for form groups to maintain consistent styling */
+.form-group {
+  margin-bottom: 20px;
 }
 
 /* Add texture to sections for depth */
@@ -148,72 +174,55 @@ textarea:focus {
 .features,
 .membership,
 .training-types {
-  position: relative !important;
+  position: relative;
 }
 
 .hero::before,
 .features::before,
 .membership::before,
 .training-types::before {
-  content: "" !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  background-image: linear-gradient(45deg, #101010 25%, transparent 25%, transparent 50%, #101010 50%, #101010 75%, transparent 75%, transparent) !important;
-  background-size: 4px 4px !important;
-  opacity: 0.05 !important;
-  pointer-events: none !important;
-  z-index: 0 !important;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, #101010 25%, transparent 25%, transparent 50%, #101010 50%, #101010 75%, transparent 75%, transparent);
+  background-size: 4px 4px;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Improve UI element visibility with subtle gradients */
 .header,
 .footer,
 .nav {
-  background: linear-gradient(to bottom, #000000, #0a0a0a) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: linear-gradient(to bottom, #000000, #0a0a0a);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Add box shadow to images for depth */
 img {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-/* Remove the faint grey boxes around navigation buttons and improve their visibility in monochrome theme */
-[role="button"].nav-button {
-  background: none !important;
-  box-shadow: none !important;
-  border-style: none !important;
-  opacity: 0.7;
-  transition: opacity 0.3s ease, transform 0.3s ease !important;
-}
-
-[role="button"].nav-button:hover {
-  opacity: 1;
-  transform: scale(1.1) !important;
-  background: none !important;
-  box-shadow: none !important;
-  border-style: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Navigation buttons */
-.nav-button,
-[role="button"].nav-button {
-  background: none !important;
-  box-shadow: none !important;
-  border: none !important;
+[role="button"].nav-button:not(.u21-button--exempt) {
+  background: none;
+  box-shadow: none;
+  border: none;
   opacity: 0.7;
-  transition: opacity 0.3s ease !important;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.nav-button:hover,
-[role="button"].nav-button:hover {
+[role="button"].nav-button:not(.u21-button--exempt):hover {
   opacity: 1;
-  background: none !important;
-  box-shadow: none !important;
+  transform: scale(1.1);
+  background: none;
+  box-shadow: none;
+  border-style: none;
 }
 
 /* Specific styles for menu-button */
@@ -223,9 +232,9 @@ img {
   justify-content: space-between;
   width: 30px;
   height: 20px;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
+  background: none;
+  border: none;
+  box-shadow: none;
   padding: 0;
   cursor: pointer;
   position: relative;
@@ -234,10 +243,10 @@ img {
 }
 
 .menu-button:hover {
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  transform: none !important;
+  background: none;
+  border: none;
+  box-shadow: none;
+  transform: none;
 }
 
 .hamburger-line {
@@ -261,30 +270,30 @@ img {
 
 /* Fix navigation arrows in TrainingTypes component */
 .frame .navigation {
-  position: static !important;
-  display: flex !important;
-  gap: 10px !important;
-  background: none !important;
-  flex-direction: row !important;
-  z-index: 1 !important;
+  position: static;
+  display: flex;
+  gap: 10px;
+  background: none;
+  flex-direction: row;
+  z-index: 1;
 }
 
 .frame .navigation .nav-arrow {
-  height: 48px !important;
-  width: 48px !important;
-  cursor: pointer !important;
-  transition: opacity 0.2s ease !important;
-  border-style: none !important;
-  box-shadow: none !important;
+  height: 48px;
+  width: 48px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  border-style: none;
+  box-shadow: none;
 }
 
 .frame .navigation .nav-arrow:hover {
-  opacity: 0.8 !important;
+  opacity: 0.8;
 }
 
 .grid-section .navigation-controls .nav-arrow {
-  box-shadow: none !important;
-  border: none !important;
+  box-shadow: none;
+  border: none;
 }
 
 /* Responsive styles */
