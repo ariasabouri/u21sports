@@ -45,30 +45,13 @@
                 </div>
             </section>
 
-            <HighlightSection title="Urban Sports Club">
-                <template #content>
-                    <div class="usc-content">
-                        <p>Du bist Urban Sports Club Mitglied? Perfekt! Nutze deine Mitgliedschaft für unser Training:
-                        </p>
-                        <ul>
-                            <li>Einfache Buchung über die USC-App</li>
-                            <li>Flexible Teilnahme an allen Trainingseinheiten</li>
-                            <li>Keine zusätzlichen Kosten (abhängig von deiner USC-Mitgliedschaft)</li>
-                        </ul>
-                        <Button text="Mehr zu Urban Sports Club" @click="handleUSC" />
-                    </div>
-                </template>
-            </HighlightSection>
+            <HighlightSection title="Urban Sports Club" backgroundColor="var(--color-primary)"
+                text="Du bist Urban Sports Club Mitglied? Perfekt! Nutze deine Mitgliedschaft für unser Training: Einfache Buchung über die USC-App, Flexible Teilnahme an allen Trainingseinheiten, Keine zusätzlichen Kosten (abhängig von deiner USC-Mitgliedschaft)."
+                :buttons="[{ label: 'Mehr zu Urban Sports Club', onClick: handleUSC }]" />
 
-            <HighlightSection title="Kostenlose Probestunde">
-                <template #content>
-                    <div class="trial-content">
-                        <p>Überzeuge dich selbst von der Qualität unseres Trainings. Vereinbare jetzt dein kostenloses
-                            Probetraining!</p>
-                        <Button text="Probetraining buchen" @click="handleTrial" />
-                    </div>
-                </template>
-            </HighlightSection>
+            <HighlightSection title="Kostenlose Probestunde" backgroundColor="var(--color-primary)"
+                text="Überzeuge dich selbst von der Qualität unseres Trainings. Vereinbare jetzt dein kostenloses Probetraining!"
+                :buttons="[{ label: 'Probetraining buchen', onClick: handleTrial }]" />
         </div>
     </div>
 </template>
@@ -156,7 +139,7 @@ h2 {
     top: -12px;
     right: 20px;
     background-color: var(--color-primary);
-    color: var(--color-text);
+    color: var(--color-text-secondary);
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 14px;

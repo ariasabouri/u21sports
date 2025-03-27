@@ -52,17 +52,17 @@
                 </div>
             </section>
 
-            <section class="age-group-section cta-section">
-                <h2>Die richtige Gruppe finden</h2>
-                <p>Unsere erfahrenen Trainer helfen dabei, die passende Altersgruppe und das richtige Leistungsniveau zu
-                    finden.</p>
-                <button class="cta-button" @click="handleCtaClick">Beratungsgespräch vereinbaren</button>
-            </section>
+            <HighlightSection title="Die richtige Gruppe finden"
+                text="Unsere erfahrenen Trainer helfen dabei, die passende Altersgruppe und das richtige Leistungsniveau zu finden."
+                :buttons="[{ label: 'Beratungsgespräch vereinbaren', onClick: handleCtaClick }]" />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import HighlightSection from '@/components/UI/HighlightSection.vue';
+import Button from '@/components/UI/Button.vue';
+
 const handleCtaClick = () => {
     // Implement consultation booking logic
     console.log('Consultation CTA clicked')

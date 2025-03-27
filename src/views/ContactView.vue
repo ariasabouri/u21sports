@@ -45,57 +45,53 @@
                     </form>
                 </section>
 
-                <HighlightSection>
-                    <template #content>
-                        <div class="info-section">
-                            <div class="info-block">
-                                <h2>Kontaktinformationen</h2>
-                                <div class="contact-info">
-                                    <div class="info-item">
-                                        <strong>Telefon:</strong>
-                                        <p>+49 (0) 123 456789</p>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>E-Mail:</strong>
-                                        <p>info@u21sports.de</p>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Trainingszeiten:</strong>
-                                        <p>Montag - Freitag: 15:00 - 20:00 Uhr</p>
-                                        <p>Samstag: 10:00 - 14:00 Uhr</p>
-                                    </div>
-                                </div>
+                <section class="contact-section info-section">
+                    <div class="info-block">
+                        <h2>Kontaktinformationen</h2>
+                        <div class="contact-info">
+                            <div class="info-item">
+                                <strong>Telefon:</strong>
+                                <p>+49 (0) 123 456789</p>
                             </div>
-
-                            <div class="info-block">
-                                <h2>Hauptstandort</h2>
-                                <div class="location-info">
-                                    <p>U21 Sports BASE</p>
-                                    <p>Musterstraße 123</p>
-                                    <p>12345 Berlin</p>
-                                </div>
+                            <div class="info-item">
+                                <strong>E-Mail:</strong>
+                                <p>info@u21sports.de</p>
                             </div>
-
-                            <div class="social-links">
-                                <h2>Social Media</h2>
-                                <div class="social-icons">
-                                    <a href="#" class="social-icon" title="Instagram">
-                                        <img src="@/assets/icons/ph-instagram-logo.svg" alt="Instagram">
-                                    </a>
-                                    <a href="#" class="social-icon" title="Facebook">
-                                        <img src="@/assets/icons/ph-facebook-logo.svg" alt="Facebook">
-                                    </a>
-                                    <a href="#" class="social-icon" title="Twitter">
-                                        <img src="@/assets/icons/ph-twitter-logo.svg" alt="Twitter">
-                                    </a>
-                                    <a href="#" class="social-icon" title="YouTube">
-                                        <img src="@/assets/icons/ph-youtube-logo.svg" alt="YouTube">
-                                    </a>
-                                </div>
+                            <div class="info-item">
+                                <strong>Trainingszeiten:</strong>
+                                <p>Montag - Freitag: 15:00 - 20:00 Uhr</p>
+                                <p>Samstag: 10:00 - 14:00 Uhr</p>
                             </div>
                         </div>
-                    </template>
-                </HighlightSection>
+                    </div>
+
+                    <div class="info-block">
+                        <h2>Hauptstandort</h2>
+                        <div class="location-info">
+                            <p>U21 Sports BASE</p>
+                            <p>Musterstraße 123</p>
+                            <p>12345 Berlin</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <h2>Social Media</h2>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" title="Instagram">
+                                <img src="@/assets/icons/ph-instagram-logo.svg" alt="Instagram">
+                            </a>
+                            <a href="#" class="social-icon" title="Facebook">
+                                <img src="@/assets/icons/ph-facebook-logo.svg" alt="Facebook">
+                            </a>
+                            <a href="#" class="social-icon" title="Twitter">
+                                <img src="@/assets/icons/ph-twitter-logo.svg" alt="Twitter">
+                            </a>
+                            <a href="#" class="social-icon" title="YouTube">
+                                <img src="@/assets/icons/ph-youtube-logo.svg" alt="YouTube">
+                            </a>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
@@ -352,6 +348,6 @@ p {
 .info-section h2,
 .info-section p,
 .info-section strong {
-    color: var(--color-text-secondary);
+    color: var(--color-text);
 }
 </style>

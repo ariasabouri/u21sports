@@ -64,15 +64,9 @@
                 </div>
             </section>
 
-            <HighlightSection title="Kostenlos vorbeischauen">
-                <template #content>
-                    <div class="cta-content">
-                        <p>Besuche uns an einem unserer Standorte und überzeuge dich selbst von der Qualität unseres
-                            Trainings.</p>
-                        <Button text="Probetraining buchen" @click="handleCtaClick" />
-                    </div>
-                </template>
-            </HighlightSection>
+            <HighlightSection title="Kostenlos vorbeischauen"
+                text="Besuche uns an einem unserer Standorte und überzeuge dich selbst von der Qualität unseres Trainings."
+                :buttons="[{ label: 'Probetraining buchen', onClick: handleCtaClick }]" />
         </div>
     </div>
 </template>

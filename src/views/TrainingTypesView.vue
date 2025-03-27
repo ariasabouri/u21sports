@@ -63,16 +63,21 @@
                 </div>
             </section>
 
-            <section class="training-type-section cta-section">
-                <h2>Finde dein passendes Training</h2>
-                <p>Wir beraten dich gerne bei der Auswahl des optimalen Trainings für deine Ziele.</p>
-                <button class="cta-button" @click="handleCtaClick">Kostenlose Beratung</button>
-            </section>
+            <HighlightSection title="Finde dein passendes Training" backgroundColor="var(--color-primary)">
+                <template #content>
+                    <p>Wir beraten dich gerne bei der Auswahl des optimalen Trainings für deine Ziele.</p>
+                </template>
+                <template #footer>
+                    <button class="cta-button" @click="handleCtaClick">Kostenlose Beratung</button>
+                </template>
+            </HighlightSection>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import HighlightSection from '@/components/UI/HighlightSection.vue';
+
 const handleCtaClick = () => {
     // Implement consultation booking logic
     console.log('Training consultation requested')
@@ -96,7 +101,7 @@ h1 {
     font-family: "Roboto-Bold", Helvetica, sans-serif;
     font-size: 32px;
     margin-bottom: 40px;
-    color: #ffffff;
+    color: var(--color-text);
     text-align: center;
 }
 
@@ -111,14 +116,14 @@ h2 {
     font-family: "Roboto-Bold", Helvetica, sans-serif;
     font-size: 24px;
     margin-bottom: 20px;
-    color: #ffffff;
+    color: var(--color-text);
 }
 
 h3 {
     font-family: "Roboto-SemiBold", Helvetica, sans-serif;
     font-size: 18px;
     margin: 20px 0 15px;
-    color: #ffffff;
+    color: var(--color-text);
 }
 
 .training-details {
@@ -130,7 +135,7 @@ p {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 20px;
-    color: #ffffff;
+    color: var(--color-text);
 }
 
 ul {
@@ -144,7 +149,7 @@ li {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 10px;
-    color: #ffffff;
+    color: var(--color-text);
 }
 
 .cta-section {

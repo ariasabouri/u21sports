@@ -42,16 +42,17 @@
                 </div>
             </section>
 
-            <section class="training-section cta-section">
-                <h2>Jetzt Probetraining vereinbaren</h2>
-                <p>Erlebe unser professionelles Training selbst und überzeuge dich von unserer Qualität.</p>
-                <button class="cta-button" @click="handleCtaClick">Probetraining buchen</button>
-            </section>
+            <HighlightSection title="Jetzt Probetraining vereinbaren" backgroundColor="var(--color-primary)"
+                text="Erlebe unser professionelles Training selbst und überzeuge dich von unserer Qualität."
+                :buttons="[{ label: 'Probetraining buchen', onClick: handleCtaClick }]" />
+
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import HighlightSection from '@/components/UI/HighlightSection.vue';
+
 const handleCtaClick = () => {
     // Implement booking logic or navigation
     console.log('CTA clicked')

@@ -24,16 +24,16 @@
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 
   /* Custom colors - Black and White Only */
-  --app-background: #000000; /* True black background */
-  --app-background-soft: #121212; /* Very dark gray for subtle contrast */
-  --app-accent: #ffffff; /* Pure white for accents */
-  --app-accent-hover: #e0e0e0; /* Light gray for hover states */
-  --app-text: #ffffff; /* White text */
-  --app-text-muted: rgba(255, 255, 255, 0.7); /* Slightly transparent white */
-  --app-highlight: #d0d0d0; /* Light gray highlight */
+  --app-background: #000000;
+  --app-background-soft: #121212;
+  --app-accent: #ffffff;
+  --app-accent-hover: #e0e0e0;
+  --app-text: #ffffff;
+  --app-text-muted: rgba(255, 255, 255, 0.7);
+  --app-highlight: #d0d0d0;
   --app-header: var(--app-background);
   --app-footer: #000000;
-  --app-text-secondary: #333333; /* Dark text for light backgrounds */
+  --app-text-secondary: #333333;
   
   /* Component styling variables */
   --u21-btn-border-radius: 10px;

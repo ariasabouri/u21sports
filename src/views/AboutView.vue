@@ -21,12 +21,8 @@
         </ul>
       </section>
 
-      <HighlightSection title="Urban Sports Club Partner">
-        <template #content>
-          <p>Als Partner von Urban Sports Club bieten wir flexible Buchungsmöglichkeiten für unsere Trainingseinheiten.
-            USC-Mitglieder können einfach über die App buchen und teilnehmen.</p>
-        </template>
-      </HighlightSection>
+      <HighlightSection title="Urban Sports Club Partner" textAlign="left" background-color="#fff" text-color="#000"
+        text="Als Partner von Urban Sports Club bieten wir flexible Buchungsmöglichkeiten für unsere Trainingseinheiten. USC-Mitglieder können einfach über die App buchen und teilnehmen." />
 
       <section class="about-section">
         <h2>Standorte</h2>
@@ -67,17 +63,6 @@ h1 {
   padding: 25px;
   border-radius: 10px;
   background-color: var(--color-background-soft);
-}
-
-.highlight-section {
-  background-color: #FFFFFF;
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-border);
-}
-
-.highlight-section h2,
-.highlight-section p {
-  color: var(--color-text-secondary);
 }
 
 h2 {
